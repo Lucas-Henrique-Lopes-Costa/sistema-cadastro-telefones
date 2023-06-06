@@ -10,119 +10,150 @@ struct Celular
 {
   int identificador;
   string nome;
-  int quantidade;
   float preco;
+  int quantidade;
   string fabricante;
   int anoCriacao;
   string descricao;
 };
 
-vector<Celular> celulares;
+// Função para exibir o menu de opções
+void exibirMenu()
+{
+  cout << "===== Sistema de Cadastro de Celulares =====" << endl;
+  cout << "1 - Cadastrar Celular" << endl;
+  cout << "2 - Buscar Celular" << endl;
+  cout << "3 - Alterar Celular" << endl;
+  cout << "4 - Exportar para CSV" << endl;
+  cout << "5 - Importar de CSV" << endl;
+  cout << "6 - Ordenar por Ano de Criacao" << endl;
+  cout << "0 - Sair" << endl;
+  cout << "Opcao: ";
+}
 
-void cadastrarCelular()
+// Função para cadastrar um celular
+void cadastrarCelular(vector<Celular> &celulares)
 {
   Celular celular;
+
   cout << "Identificador: ";
   cin >> celular.identificador;
-  cin.ignore();
+
   cout << "Nome: ";
+  cin.ignore();
   getline(cin, celular.nome);
-  cout << "Quantidade: ";
-  cin >> celular.quantidade;
+
   cout << "Preco: ";
   cin >> celular.preco;
-  cin.ignore();
+
+  cout << "Quantidade: ";
+  cin >> celular.quantidade;
+
   cout << "Fabricante: ";
+  cin.ignore();
   getline(cin, celular.fabricante);
+
   cout << "Ano de Criacao: ";
   cin >> celular.anoCriacao;
-  cin.ignore();
+
   cout << "Descricao: ";
+  cin.ignore();
   getline(cin, celular.descricao);
 
   celulares.push_back(celular);
   cout << "Celular cadastrado com sucesso!" << endl;
 }
 
-void buscarCelular()
+// Função para buscar um celular pelo identificador
+void buscarCelular(const vector<Celular> &celulares)
 {
   int identificador;
   cout << "Digite o identificador do celular: ";
   cin >> identificador;
 
-  auto it = find_if(celulares.begin(), celulares.end(), [identificador](const Celular &celular)
-                    { return celular.identificador == identificador; });
-
-  if (it != celulares.end())
+  bool encontrado = false;
+  for (const Celular &celular : celulares)
   {
-    cout << "Celular encontrado:" << endl;
-    cout << "Identificador: " << it->identificador << endl;
-    cout << "Nome: " << it->nome << endl;
-    cout << "Quantidade: " << it->quantidade << endl;
-    cout << "Preco: " << it->preco << endl;
-    cout << "Fabricante: " << it->fabricante << endl;
-    cout << "Ano de Criacao: " << it->anoCriacao << endl;
-    cout << "Descricao: " << it->descricao << endl;
+    if (celular.identificador == identificador)
+    {
+      cout << "Celular encontrado:" << endl;
+      cout << "Identificador: " << celular.identificador << endl;
+      cout << "Nome: " << celular.nome << endl;
+      cout << "Preco: " << celular.preco << endl;
+      cout << "Quantidade: " << celular.quantidade << endl;
+      cout << "Fabricante: " << celular.fabricante << endl;
+      cout << "Ano de Criacao: " << celular.anoCriacao << endl;
+      cout << "Descricao: " << celular.descricao << endl;
+      encontrado = true;
+      break;
+    }
   }
-  else
+
+  if (!encontrado)
   {
     cout << "Celular nao encontrado." << endl;
   }
 }
 
-void alterarCelular()
+// Função para alterar um celular existente
+void alterarCelular(vector<Celular> &celulares)
 {
   int identificador;
-  cout << "Digite o identificador do celular que deseja alterar: ";
+  cout << "Digite o identificador do celular a ser alterado: ";
   cin >> identificador;
 
-  auto it = find_if(celulares.begin(), celulares.end(), [identificador](const Celular &celular)
-                    { return celular.identificador == identificador; });
-
-  if (it != celulares.end())
+  bool encontrado = false;
+  for (Celular &celular : celulares)
   {
-    cout << "Digite os novos dados do celular:" << endl;
-    cout << "Nome: ";
-    cin.ignore();
-    getline(cin, it->nome);
-    cout << "Quantidade: ";
-    cin >> it->quantidade;
-    cout << "Preco: ";
-    cin >> it->preco;
-    cin.ignore();
-    cout << "Fabricante: ";
-    getline(cin, it->fabricante);
-    cout << "Ano de Criacao: ";
-    cin >> it->anoCriacao;
-    cin.ignore();
-    cout << "Descricao: ";
-    getline(cin, it->descricao);
+    if (celular.identificador == identificador)
+    {
+      cout << "Digite os novos dados do celular:" << endl;
 
-    cout << "Celular alterado com sucesso!" << endl;
+      cout << "Nome: ";
+      cin.ignore();
+      getline(cin, celular.nome);
+
+      cout << "Preco: ";
+      cin >> celular.preco;
+
+      cout << "Quantidade: ";
+      cin >> celular.quantidade;
+
+      cout << "Fabricante: ";
+      cin.ignore();
+      getline(cin, celular.fabricante);
+
+      cout << "Ano de Criacao: ";
+      cin >> celular.anoCriacao;
+
+      cout << "Descricao: ";
+      cin.ignore();
+      getline(cin, celular.descricao);
+
+      cout << "Celular alterado com sucesso!" << endl;
+      encontrado = true;
+      break;
+    }
   }
-  else
+
+  if (!encontrado)
   {
     cout << "Celular nao encontrado." << endl;
   }
 }
 
-void exportarCSV()
+// Função para exportar os celulares para um arquivo CSV
+void exportarCSV(const vector<Celular> &celulares)
 {
-  ofstream file("celulares.csv");
-  if (file.is_open())
+  ofstream arquivo("celulares.csv");
+  if (arquivo.is_open())
   {
-    file << "Identificador,Nome,Quantidade,Preco,Fabricante,Ano de Criacao,Descricao\n";
-    for (const auto &celular : celulares)
+    arquivo << "Identificador;Nome;Preco;Quantidade;Fabricante;Ano de Criacao;Descricao do produto" << endl;
+    for (const Celular &celular : celulares)
     {
-      file << celular.identificador << ","
-           << celular.nome << ","
-           << celular.quantidade << ","
-           << celular.preco << ","
-           << celular.fabricante << ","
-           << celular.anoCriacao << ","
-           << celular.descricao << "\n";
+      arquivo << celular.identificador << ";" << celular.nome << ";" << celular.preco << ";" << celular.quantidade << ";" << celular.fabricante << ";" << celular.anoCriacao << ";" << celular.descricao << endl;
     }
-    file.close();
+    arquivo.close();
     cout << "Dados exportados para celulares.csv" << endl;
   }
   else
@@ -131,39 +162,45 @@ void exportarCSV()
   }
 }
 
-void importarCSV()
+// Função para importar celulares de um arquivo CSV
+void importarCSV(vector<Celular> &celulares)
 {
-  celulares.clear();
-
-  ifstream file("celulares.csv");
-  if (file.is_open())
+  ifstream arquivo("celulares.csv");
+  if (arquivo.is_open())
   {
-    string line;
-    getline(file, line); // Ignorar a linha de cabeçalho
-    while (getline(file, line))
+    celulares.clear();
+    string linha;
+    getline(arquivo, linha); // Descarta o cabeçalho
+
+    while (getline(arquivo, linha))
     {
-      stringstream ss(line);
-      string field;
-      vector<string> fields;
-
-      while (getline(ss, field, ','))
-      {
-        fields.push_back(field);
-      }
-
+      stringstream ss(linha);
+      string campo;
       Celular celular;
-      celular.identificador = stoi(fields[0]);
-      celular.nome = fields[1];
-      celular.quantidade = stoi(fields[2]);
-      celular.preco = stof(fields[3]);
-      celular.fabricante = fields[4];
-      celular.anoCriacao = stoi(fields[5]);
-      celular.descricao = fields[6];
+
+      getline(ss, campo, ';');
+      celular.identificador = stoi(campo);
+
+      getline(ss, celular.nome, ';');
+
+      getline(ss, campo, ';');
+      celular.preco = stof(campo);
+
+      getline(ss, campo, ';');
+      celular.quantidade = stoi(campo);
+
+      getline(ss, celular.fabricante, ';');
+
+      getline(ss, campo, ';');
+      celular.anoCriacao = stoi(campo);
+
+      getline(ss, celular.descricao, ';');
 
       celulares.push_back(celular);
     }
-    file.close();
-    cout << "Dados importados de celulares.csv" << endl;
+
+    arquivo.close();
+    cout << "Dados importados do arquivo celulares.csv" << endl;
   }
   else
   {
@@ -171,49 +208,47 @@ void importarCSV()
   }
 }
 
-void ordenarPorAno()
+// Função para ordenar os celulares por ano de criação
+bool compararAnoCriacao(const Celular &a, const Celular &b)
 {
-  sort(celulares.begin(), celulares.end(), [](const Celular &c1, const Celular &c2)
-       { return c1.anoCriacao < c2.anoCriacao; });
+  return a.anoCriacao < b.anoCriacao;
+}
+
+void ordenarPorAnoCriacao(vector<Celular> &celulares)
+{
+  sort(celulares.begin(), celulares.end(), compararAnoCriacao);
   cout << "Celulares ordenados por ano de criacao." << endl;
 }
 
 int main()
 {
-  int opcao;
+  vector<Celular> celulares;
 
+  int opcao;
   do
   {
-    cout << "===== Sistema de Cadastro de Celulares =====" << endl;
-    cout << "1 - Cadastrar Celular" << endl;
-    cout << "2 - Buscar Celular" << endl;
-    cout << "3 - Alterar Celular" << endl;
-    cout << "4 - Exportar para CSV" << endl;
-    cout << "5 - Importar de CSV" << endl;
-    cout << "6 - Ordenar por Ano de Criacao" << endl;
-    cout << "0 - Sair" << endl;
-    cout << "Opcao: ";
+    exibirMenu();
     cin >> opcao;
 
     switch (opcao)
     {
     case 1:
-      cadastrarCelular();
+      cadastrarCelular(celulares);
       break;
     case 2:
-      buscarCelular();
+      buscarCelular(celulares);
       break;
     case 3:
-      alterarCelular();
+      alterarCelular(celulares);
       break;
     case 4:
-      exportarCSV();
+      exportarCSV(celulares);
       break;
     case 5:
-      importarCSV();
+      importarCSV(celulares);
       break;
     case 6:
-      ordenarPorAno();
+      ordenarPorAnoCriacao(celulares);
       break;
     case 0:
       cout << "Saindo..." << endl;
