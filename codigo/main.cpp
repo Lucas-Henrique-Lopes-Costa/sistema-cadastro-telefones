@@ -1,60 +1,3 @@
-/*
-  # Projeto: Sistema de cadastro de telefones celulares para venda
-
-  ## Grupo
-
-  Lucas Henrique, Pedro Gonçalves, Gabriel Carvalho
-
-  ## Bases
-
-  Identificador
-
-  Nome
-
-  Quantidade
-
-  Preço
-
-  Fabricante
-
-  Ano de criação
-
-  Descrição do produto
-
-  ## Sobre o Projeto
-
-  ### Introdução
-
-  O objetivo deste projeto é desenvolver um sistema de gerenciamento de vendas de smartphones, que permitirá às empresas monitorar e controlar suas transações de venda de forma eficiente. Com o crescimento do mercado de dispositivos móveis, é essencial que as empresas tenham ferramentas adequadas para acompanhar e analisar suas vendas de smartphones.
-
-  ### Sobre as bases
-
-  Identificador: Cada smartphone vendido receberá um identificador exclusivo, que será utilizado para rastrear e identificar o dispositivo. Tipo de dado: int.
-
-  Nome: O nome do smartphone será registrado, facilitando a identificação do modelo específico. Tipo de dado:  string com espaço
-
-  Preço: Qual é o valor de venda do produto por unidade de cada smartphone. Tipo de dado: float.
-
-  Quantidade: Será registrado o número de unidades em estoque de cada smartphone, permitindo uma logística precisa. Tipo de dado: int.
-
-  Fabricante: O nome do fabricante será armazenado, fornecendo informações sobre a origem do smartphone. Tipo de dado: string.
-
-  Ano de criação: O ano de criação do smartphone será registrado, possibilitando análises históricas e identificação de tendências. Tipo de dado: int
-
-  Descrição do produto: Será incluída uma descrição detalhada do smartphone, fornecendo informações sobre suas características e especificações técnicas. Tipo de dado:  string com espaço.
-
-  ## Funcionalidades
-
-  Cadastro de vendas: O sistema permitirá que as empresas registrem as vendas de smartphones, inserindo as informações relevantes, como identificador, nome, quantidade, fabricante, ano de criação e descrição do produto.
-
-  Controle de estoque: O sistema atualizará automaticamente o estoque de smartphones disponíveis com base nas vendas registradas, evitando vendas duplicadas ou erros de estoque.
-
-  Ordenação por ano, evitando que produtos fiquem parados nos estoques por longos períodos de tempo.
-
-  Importação e exportação em .csv
-
-*/
-
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -71,15 +14,71 @@ int main()
     return 0;
   }
 
-  // separar cada linha do arquivo em: Indentificador	Nome; Preco	Quantidade; Fabricante; Ano de criacao; Descricao do produto
   string linha;
-  getline(arquivoIn, linha);
-  
-  cout << linha << endl;
+  getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
+
+  // separar cada linha do arquivo em: Indentificador	Nome; Preco	Quantidade; Fabricante; Ano de criacao; Descricao do produto
+  int indentificador[100] = {0};
+  string nome[100] = {""};
+  float preco[100] = {0};
+  int quantidade[100] = {0};
+  string fabricante[100] = {""};
+  int anoCriacao[100] = {0};
+  string descricao[100] = {""};
+
+  int i = 0;
+
+  while (!arquivoIn.eof())
+  {
+    getline(arquivoIn, linha);
+
+    if (linha == "")
+    {
+      continue;
+    }
+
+    // indentificador
+    int pos = linha.find(";");
+    indentificador[i] = stoi(linha.substr(0, pos)); // stoi converte string para int
+
+    // nome
+    int pos2 = linha.find(";", pos + 1);
+    nome[i] = linha.substr(pos + 1, pos2 - pos - 1);
+
+    // preco
+    pos = linha.find(";", pos2 + 1);
+    preco[i] = stof(linha.substr(pos2 + 1, pos - pos2 - 1)); // stof converte string para float
+
+    // quantidade
+    pos2 = linha.find(";", pos + 1);
+    quantidade[i] = stoi(linha.substr(pos + 1, pos2 - pos - 1));
+
+    // fabricante
+    pos = linha.find(";", pos2 + 1);
+    fabricante[i] = linha.substr(pos2 + 1, pos - pos2 - 1);
+
+    // anoCriacao
+    pos2 = linha.find(";", pos + 1);
+    anoCriacao[i] = stoi(linha.substr(pos + 1, pos2 - pos - 1));
+
+    // descricao
+    pos = linha.find(";", pos2 + 1);
+    descricao[i] = linha.substr(pos2 + 1, pos - pos2 - 1);
+
+    i++;
+  }
 
   arquivoIn.close();
 
-
+  // Exibir o ano do primeiro celular cadastrado
+  cout << "Utlimo celular cadastrado: " << endl;
+  cout << "Identificador: " << indentificador[i - 1] << endl;
+  cout << "Nome: " << nome[i - 1] << endl;
+  cout << "Preco: " << preco[i - 1] << endl;
+  cout << "Quantidade: " << quantidade[i - 1] << endl;
+  cout << "Fabricante: " << fabricante[i - 1] << endl;
+  cout << "Ano de Criacao: " << anoCriacao[i - 1] << endl;
+  cout << "Descricao: " << descricao[i - 1] << endl;
 
   return 0;
 }
