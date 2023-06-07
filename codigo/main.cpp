@@ -70,15 +70,7 @@ int main()
 
   arquivoIn.close();
 
-  // Exibir o ano do primeiro celular cadastrado
-  cout << "Utlimo celular cadastrado: " << endl;
-  cout << "Identificador: " << indentificador[i - 1] << endl;
-  cout << "Nome: " << nome[i - 1] << endl;
-  cout << "Preco: " << preco[i - 1] << endl;
-  cout << "Quantidade: " << quantidade[i - 1] << endl;
-  cout << "Fabricante: " << fabricante[i - 1] << endl;
-  cout << "Ano de Criacao: " << anoCriacao[i - 1] << endl;
-  cout << "Descricao: " << descricao[i - 1] << endl;
+  // Funções:
 
   return 0;
 }
