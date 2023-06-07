@@ -17,13 +17,13 @@ int main()
   string linha;
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
-  // separar cada linha do arquivo em: Indentificador	Nome; Preco	Quantidade; Fabricante; Ano de criacao; Descricao do produto
-  int indentificador[100] = {0};
+  // separar cada linha do arquivo
+  int indentificador[100] = {-1};
   string nome[100] = {""};
-  float preco[100] = {0};
-  int quantidade[100] = {0};
+  float preco[100] = {-1};
+  int quantidade[100] = {-1};
   string fabricante[100] = {""};
-  int anoCriacao[100] = {0};
+  int anoCriacao[100] = {-1};
   string descricao[100] = {""};
 
   int i = 0;
