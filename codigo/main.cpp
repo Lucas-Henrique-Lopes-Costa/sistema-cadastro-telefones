@@ -3,6 +3,258 @@
 #include <cstring>
 using namespace std;
 
+void alterarTodosOsDados(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+{
+  system("cls");
+
+  int id;
+  cout << "Digite o identificador do celular: ";
+  cin >> id;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < i; j++)
+  {
+    if (id == identificador[j])
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "Digite o novo nome: ";
+      cin >> nome[j];
+      cout << endl
+           << "Digite o novo preco: ";
+      cin >> preco[j];
+      cout << endl
+           << "Digite a nova quantidade: ";
+      cin >> quantidade[j];
+      cout << endl
+           << "Digite o novo fabricante: ";
+      cin >> fabricante[j];
+      cout << endl
+           << "Digite o novo ano de criacao: ";
+      cin >> anoCriacao[j];
+      cout << endl
+           << "Digite a nova descricao: ";
+      cin >> descricao[j];
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "##################################" << endl;
+      cout << "Celular alterado com sucesso!" << endl;
+      cout << "0 - Voltar para Inicio" << endl;
+      cout << "Opcao: ";
+      int opcao;
+      cin >> opcao;
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << "CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void alterarQuantidade(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+{
+  system("cls");
+
+  int id;
+  cout << "Digite o identificador do celular: ";
+  cin >> id;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < i; j++)
+  {
+    if (id == identificador[j])
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "Digite a nova quantidade: ";
+      cin >> quantidade[j];
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "##################################" << endl;
+      cout << "Celular alterado com sucesso!" << endl;
+      cout << "0 - Voltar para Inicio" << endl;
+      cout << "Opcao: ";
+      int opcao;
+      cin >> opcao;
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << "CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void alterarPreco(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+{
+  system("cls");
+
+  int id;
+  cout << "Digite o identificador do celular: ";
+  cin >> id;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < i; j++)
+  {
+    if (id == identificador[j])
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "Digite o novo preco: ";
+      cin >> preco[j];
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "##################################" << endl;
+      cout << "Celular alterado com sucesso!" << endl;
+      cout << "0 - Voltar para Inicio" << endl;
+      cout << "Opcao: ";
+      int opcao;
+      cin >> opcao;
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << "CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void alterarNome(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+{
+  system("cls");
+
+  int id;
+  cout << "Digite o identificador do celular: ";
+  cin >> id;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < i; j++)
+  {
+    if (id == identificador[j])
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "Digite o novo nome: ";
+      getline(cin, nome[j]);
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << identificador[j] << endl;
+      cout << "Nome: " << nome[j] << endl;
+      cout << "Preco: " << preco[j] << endl;
+      cout << "Quantidade: " << quantidade[j] << endl;
+      cout << "Fabricante: " << fabricante[j] << endl;
+      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
+      cout << "Descricao: " << descricao[j] << endl;
+
+      cout << endl
+           << "##################################" << endl;
+      cout << "Celular alterado com sucesso!" << endl;
+      cout << "0 - Voltar para Inicio" << endl;
+      cout << "Opcao: ";
+      int opcao;
+      cin >> opcao;
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << "CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void exibirMenuAlterarCelular()
+{
+  system("cls");
+
+  cout << "===== Alterar Celular =====" << endl;
+  cout << "1 - Alterar Nome" << endl;
+  cout << "2 - Alterar Preco" << endl;
+  cout << "3 - Alterar Quantidade" << endl;
+  cout << "4 - Alterar Todos os Dados" << endl;
+  cout << "0 - Voltar" << endl;
+  cout << "Opcao: ";
+}
+
 void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
   system("cls");
@@ -430,7 +682,7 @@ void exibirMenu()
   cout << "3 - Alterar Celular" << endl;
   cout << "4 - Exportar para CSV" << endl;
   cout << "5 - Importar de CSV" << endl;
-  cout << "6 - Ordenações" << endl;
+  cout << "6 - Ordenacoes" << endl;
   cout << "0 - Sair" << endl;
   cout << "Opcao: ";
 }
@@ -450,7 +702,7 @@ int main()
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
   // separar cada linha do arquivo
-  int indentificador[100] = {-1};
+  int identificador[100] = {-1};
   string nome[100] = {""};
   float preco[100] = {-1};
   int quantidade[100] = {-1};
@@ -459,7 +711,6 @@ int main()
   string descricao[100] = {""};
 
   int i = 0;
-
   while (!arquivoIn.eof())
   {
     getline(arquivoIn, linha);
@@ -469,9 +720,9 @@ int main()
       continue;
     }
 
-    // indentificador
+    // identificador
     int pos = linha.find(";");
-    indentificador[i] = stoi(linha.substr(0, pos)); // stoi converte string para int
+    identificador[i] = stoi(linha.substr(0, pos)); // stoi converte string para int
 
     // nome
     int pos2 = linha.find(";", pos + 1);
@@ -510,6 +761,9 @@ int main()
   {
     cin >> opcao;
 
+    int opcaoConsultaNovamente;
+    int opcaoBuscarCelular;
+
     switch (opcao)
     {
     case 1:
@@ -517,9 +771,6 @@ int main()
       break;
     case 2:
       // Busca Celular
-      int opcaoConsultaNovamente;
-      int opcaoBuscarCelular;
-
       do
       {
         exibirMenuBuscarCelular();
@@ -528,22 +779,22 @@ int main()
         switch (opcaoBuscarCelular)
         {
         case 1:
-          buscarPorIdentificador(indentificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorIdentificador(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
           break;
         case 2:
-          buscarPorNome(indentificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorNome(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
           break;
         case 3:
-          buscarPorFaixaDePreco(indentificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorFaixaDePreco(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
           break;
         case 4:
-          buscarPorQuantidade(indentificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorQuantidade(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
           break;
         case 5:
-          buscarPorFabricante(indentificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorFabricante(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
           break;
         case 6:
-          buscarPorAnoCriacao(indentificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorAnoCriacao(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
         default:
           cout << "Opcao invalida!" << endl;
           break;
@@ -559,10 +810,34 @@ int main()
           cin >> opcaoConsultaNovamente;
         }
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
-
       break;
     case 3:
       // Alterar Celular
+      do
+      {
+        exibirMenuAlterarCelular();
+        int opcaoAlterarCelular;
+        cin >> opcaoAlterarCelular;
+
+        switch (opcaoAlterarCelular)
+        {
+        case 1:
+          alterarNome(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          break;
+        case 2:
+          alterarPreco(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          break;
+        case 3:
+          alterarQuantidade(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+        case 4:
+          alterarTodosOsDados(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          break;
+        default:
+          cout << "Opcao invalida!" << endl;
+          break;
+        }
+
+      } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
       break;
     case 4:
       // Exportar para CSV
