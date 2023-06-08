@@ -695,7 +695,7 @@ int main()
 
   if (!arquivoIn.is_open())
   {
-    cout << "Erro ao abrir o arquivo!" << endl;
+    cout << "Erro ao abrir o arquivo 'celulares.csv'!" << endl;
     return 0;
   }
 
@@ -860,7 +860,6 @@ int main()
     default:
       break;
     }
-
     cout << endl;
     exibirMenu();
 
