@@ -678,11 +678,12 @@ void exibirMenu()
 
   cout << "===== Sistema de Cadastro de Celulares =====" << endl;
   cout << "1 - Cadastrar Celular" << endl;
-  cout << "2 - Buscar Celular" << endl;
-  cout << "3 - Alterar Celular" << endl;
-  cout << "4 - Exportar para CSV" << endl;
-  cout << "5 - Importar de CSV" << endl;
-  cout << "6 - Ordenacoes" << endl;
+  cout << "2 - Remover Celular" << endl;
+  cout << "3 - Buscar Celular" << endl;
+  cout << "4 - Alterar Celular" << endl;
+  cout << "5 - Exportar para CSV" << endl;
+  cout << "6 - Importar de CSV" << endl;
+  cout << "7 - Ordenacoes" << endl;
   cout << "0 - Sair" << endl;
   cout << "Opcao: ";
 }
@@ -702,15 +703,15 @@ int main()
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
   // separar cada linha do arquivo
-  int identificador[100] = {-1};
-  string nome[100] = {""};
-  float preco[100] = {-1};
-  int quantidade[100] = {-1};
-  string fabricante[100] = {""};
-  int anoCriacao[100] = {-1};
-  string descricao[100] = {""};
+  int identificador[100];
+  string nome[100];
+  float preco[100];
+  int quantidade[100];
+  string fabricante[100];
+  int anoCriacao[100];
+  string descricao[100];
 
-  int i = 0;
+  int i = 0; // contador de celulares real
   while (!arquivoIn.eof())
   {
     getline(arquivoIn, linha);
@@ -750,27 +751,29 @@ int main()
 
     i++;
   }
-
   arquivoIn.close();
 
   // Funções:
   exibirMenu();
-
   int opcao;
   do
   {
     cin >> opcao;
-
     int opcaoConsultaNovamente;
     int opcaoBuscarCelular;
 
     switch (opcao)
     {
     case 1:
-      // Cadastrar Celular
+    { // Cadastrar Celular
       break;
+    }
     case 2:
-      // Busca Celular
+    { // Remover Celular
+      break;
+    }
+    case 3:
+    { // Busca Celular
       do
       {
         exibirMenuBuscarCelular();
@@ -811,8 +814,9 @@ int main()
         }
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
       break;
-    case 3:
-      // Alterar Celular
+    }
+    case 4:
+    { // Alterar Celular
       do
       {
         exibirMenuAlterarCelular();
@@ -839,15 +843,19 @@ int main()
 
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
       break;
-    case 4:
-      // Exportar para CSV
-      break;
+    }
     case 5:
-      // Importar de CSV
+    { // Exportar para CSV
       break;
+    }
     case 6:
-      // Ordenar
+    { // Importar de CSV
       break;
+    }
+    case 7:
+    { // Ordenar
+      break;
+    }
 
     default:
       break;
