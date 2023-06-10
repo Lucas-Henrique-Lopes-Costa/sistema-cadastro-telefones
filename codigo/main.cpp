@@ -5,7 +5,7 @@ using namespace std;
 
 void alterarTodosOsDados(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   int id;
   cout << "Digite o identificador do celular: ";
@@ -76,7 +76,7 @@ void alterarTodosOsDados(int identificador[], string nome[], float preco[], int 
 
 void alterarQuantidade(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   int id;
   cout << "Digite o identificador do celular: ";
@@ -132,7 +132,7 @@ void alterarQuantidade(int identificador[], string nome[], float preco[], int qu
 
 void alterarPreco(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   int id;
   cout << "Digite o identificador do celular: ";
@@ -188,7 +188,7 @@ void alterarPreco(int identificador[], string nome[], float preco[], int quantid
 
 void alterarNome(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   int id;
   cout << "Digite o identificador do celular: ";
@@ -244,7 +244,7 @@ void alterarNome(int identificador[], string nome[], float preco[], int quantida
 
 void exibirMenuAlterarCelular()
 {
-  system("cls");
+  system("clear");
 
   cout << "===== Alterar Celular =====" << endl;
   cout << "1 - Alterar Nome" << endl;
@@ -257,7 +257,7 @@ void exibirMenuAlterarCelular()
 
 void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   // perguntar se o usuário que buscar por ano de criação ou por faixa de ano de criação ou por ano de criação minimo ou por ano de criação maximo
   int opcao;
@@ -442,7 +442,7 @@ void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int 
 
 void buscarPorFabricante(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   string fabricanteCelular;
   cout << "Digite o fabricante do celular: ";
@@ -487,7 +487,7 @@ void buscarPorFabricante(int identificador[], string nome[], float preco[], int 
 
 void buscarPorQuantidade(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   int quantidadeMin;
   cout << "Digite a quantidade minima: ";
@@ -533,7 +533,7 @@ void buscarPorQuantidade(int identificador[], string nome[], float preco[], int 
 
 void buscarPorFaixaDePreco(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   float precoMin, precoMax;
   cout << "Digite o preco minimo: ";
@@ -581,7 +581,7 @@ void buscarPorFaixaDePreco(int identificador[], string nome[], float preco[], in
 
 void buscarPorNome(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   string nomeCelular;
   cout << "Digite o nome do celular: ";
@@ -626,7 +626,7 @@ void buscarPorNome(int identificador[], string nome[], float preco[], int quanti
 
 void buscarPorIdentificador(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
 {
-  system("cls");
+  system("clear");
 
   int id;
   cout << "Digite o identificador do celular: ";
@@ -659,7 +659,7 @@ void buscarPorIdentificador(int identificador[], string nome[], float preco[], i
 
 void exibirMenuBuscarCelular()
 {
-  system("cls");
+  system("clear");
 
   cout << "===== Buscar Celular =====" << endl;
   cout << "1 - Por Identificador" << endl;
@@ -674,7 +674,7 @@ void exibirMenuBuscarCelular()
 
 void exibirMenu()
 {
-  system("cls");
+  system("clear");
 
   cout << "===== Sistema de Cadastro de Celulares =====" << endl;
   cout << "1 - Cadastrar Celular" << endl;
