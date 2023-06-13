@@ -813,7 +813,6 @@ void exibirMenu()
   cout << "4 - Alterar Celular" << endl;
   cout << "5 - Exportar para CSV" << endl;
   cout << "6 - Importar de CSV" << endl;
-  cout << "7 - Ordenar" << endl;
   cout << "0 - Sair" << endl;
   cout << "Opcao: ";
 }
@@ -1024,10 +1023,6 @@ int main()
     }
     case 6:
     { // Importar de CSV
-      break;
-    }
-    case 7:
-    { // Ordenar
       break;
     }
 
