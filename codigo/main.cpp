@@ -3,307 +3,66 @@
 #include <cstring>
 using namespace std;
 
-void alterarTodosOsDados(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+struct Celular
+{
+  int identificador;
+  string nome;
+  float preco;
+  int quantidade;
+  string fabricante;
+  int anoCriacao;
+  string descricao;
+};
+
+void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 {
   system("clear");
 
-  int id;
-  cout << "Digite o identificador do celular: ";
-  cin >> id;
-  cin.ignore();
-
-  bool encontrado = false;
-  for (int j = 0; j < i; j++)
-  {
-    if (id == identificador[j])
-    {
-      cout << endl
-           << "===== Celular Encontrado =====" << endl;
-      encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "Digite o novo nome: ";
-      cin >> nome[j];
-      cout << endl
-           << "Digite o novo preco: ";
-      cin >> preco[j];
-      cout << endl
-           << "Digite a nova quantidade: ";
-      cin >> quantidade[j];
-      cout << endl
-           << "Digite o novo fabricante: ";
-      cin >> fabricante[j];
-      cout << endl
-           << "Digite o novo ano de criacao: ";
-      cin >> anoCriacao[j];
-      cout << endl
-           << "Digite a nova descricao: ";
-      cin >> descricao[j];
-
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "##################################" << endl;
-      cout << "Celular alterado com sucesso!" << endl;
-      cout << "0 - Voltar para Inicio" << endl;
-      cout << "Opcao: ";
-      int opcao;
-      cin >> opcao;
-    }
-  }
-
-  if (!encontrado)
-  {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
-  }
-}
-
-void alterarQuantidade(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
-{
-  system("clear");
-
-  int id;
-  cout << "Digite o identificador do celular: ";
-  cin >> id;
-  cin.ignore();
-
-  bool encontrado = false;
-  for (int j = 0; j < i; j++)
-  {
-    if (id == identificador[j])
-    {
-      cout << endl
-           << "===== Celular Encontrado =====" << endl;
-      encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "Digite a nova quantidade: ";
-      cin >> quantidade[j];
-
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "##################################" << endl;
-      cout << "Celular alterado com sucesso!" << endl;
-      cout << "0 - Voltar para Inicio" << endl;
-      cout << "Opcao: ";
-      int opcao;
-      cin >> opcao;
-    }
-  }
-
-  if (!encontrado)
-  {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
-  }
-}
-
-void alterarPreco(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
-{
-  system("clear");
-
-  int id;
-  cout << "Digite o identificador do celular: ";
-  cin >> id;
-  cin.ignore();
-
-  bool encontrado = false;
-  for (int j = 0; j < i; j++)
-  {
-    if (id == identificador[j])
-    {
-      cout << endl
-           << "===== Celular Encontrado =====" << endl;
-      encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "Digite o novo preco: ";
-      cin >> preco[j];
-
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "##################################" << endl;
-      cout << "Celular alterado com sucesso!" << endl;
-      cout << "0 - Voltar para Inicio" << endl;
-      cout << "Opcao: ";
-      int opcao;
-      cin >> opcao;
-    }
-  }
-
-  if (!encontrado)
-  {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
-  }
-}
-
-void alterarNome(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
-{
-  system("clear");
-
-  int id;
-  cout << "Digite o identificador do celular: ";
-  cin >> id;
-  cin.ignore();
-
-  bool encontrado = false;
-  for (int j = 0; j < i; j++)
-  {
-    if (id == identificador[j])
-    {
-      cout << endl
-           << "===== Celular Encontrado =====" << endl;
-      encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "Digite o novo nome: ";
-      getline(cin, nome[j]);
-
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
-      cout << endl
-           << "##################################" << endl;
-      cout << "Celular alterado com sucesso!" << endl;
-      cout << "0 - Voltar para Inicio" << endl;
-      cout << "Opcao: ";
-      int opcao;
-      cin >> opcao;
-    }
-  }
-
-  if (!encontrado)
-  {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
-  }
-}
-
-void exibirMenuAlterarCelular()
-{
-  system("clear");
-
-  cout << "===== Alterar Celular =====" << endl;
-  cout << "1 - Alterar Nome" << endl;
-  cout << "2 - Alterar Preco" << endl;
-  cout << "3 - Alterar Quantidade" << endl;
-  cout << "4 - Alterar Todos os Dados" << endl;
-  cout << "0 - Voltar" << endl;
-  cout << "Opcao: ";
-}
-
-void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
-{
-  system("clear");
-
-  // perguntar se o usuário que buscar por ano de criação ou por faixa de ano de criação ou por ano de criação minimo ou por ano de criação maximo
   int opcao;
-
   cout << "===== Buscar por Ano de Criacao =====" << endl;
   cout << "1 - Por Ano de Criacao" << endl;
   cout << "2 - Por Faixa de Ano de Criacao" << endl;
   cout << "3 - Por Ano de Criacao Minimo" << endl;
   cout << "4 - Por Ano de Criacao Maximo" << endl;
   cout << "Opcao: ";
-
   cin >> opcao;
 
   bool encontrado = false;
   int cont = 0;
-
   switch (opcao)
   {
   case 1:
-    int anoCriacaoCelular;
+  {
+    int anoCriacao;
     cout << "Digite o ano de criacao do celular: ";
-    cin >> anoCriacaoCelular;
+    cin >> anoCriacao;
 
-    for (int j = 0; j < i; j++)
+    cout << "=== Celular Encontrado com o ano de criacao: " << anoCriacao << " ===" << endl;
+
+    for (int i = 0; i < estoqueReal; i++)
     {
-      if (anoCriacao[j] == anoCriacaoCelular)
+      if (celulares[i].anoCriacao == anoCriacao)
       {
         cout << endl
              << "===== Celular Encontrado =====" << endl;
+
+        cout << "Identificador: " << celulares[i].identificador << endl;
+        cout << "Nome: " << celulares[i].nome << endl;
+        cout << "Preco: " << celulares[i].preco << endl;
+        cout << "Quantidade: " << celulares[i].quantidade << endl;
+        cout << "Fabricante: " << celulares[i].fabricante << endl;
+        cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+        cout << "Descricao: " << celulares[i].descricao << endl;
+
         encontrado = true;
-
-        cout << "Identificador: " << identificador[j] << endl;
-        cout << "Nome: " << nome[j] << endl;
-        cout << "Preco: " << preco[j] << endl;
-        cout << "Quantidade: " << quantidade[j] << endl;
-        cout << "Fabricante: " << fabricante[j] << endl;
-        cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-        cout << "Descricao: " << descricao[j] << endl;
-
         cont++;
       }
     }
 
     if (!encontrado)
     {
-      cout << "CELULAR NAO ENCONTRADO!" << endl;
+      cout << endl
+           << "## CELULAR NAO ENCONTRADO!" << endl;
     }
     else
     {
@@ -313,39 +72,42 @@ void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int 
       cout << endl
            << "##################################" << endl;
     }
-
     break;
+  }
   case 2:
+  {
     int anoCriacaoMin, anoCriacaoMax;
     cout << "Digite o ano de criacao minimo: ";
     cin >> anoCriacaoMin;
     cout << "Digite o ano de criacao maximo: ";
     cin >> anoCriacaoMax;
 
-    cout << "=== Celular Encontrado na entre: " << anoCriacaoMin << " e " << anoCriacaoMax << " ===" << endl;
+    cout << "=== Celular Encontrado com o ano de criacao entre: " << anoCriacaoMin << " e " << anoCriacaoMax << " ===" << endl;
 
-    for (int j = 0; j < i; j++)
+    for (int i = 0; i < estoqueReal; i++)
     {
-      if (anoCriacao[j] >= anoCriacaoMin && anoCriacao[j] <= anoCriacaoMax)
+      if (celulares[i].anoCriacao >= anoCriacaoMin && celulares[i].anoCriacao <= anoCriacaoMax)
       {
-        cout << endl;
+        cout << endl
+             << "===== Celular Encontrado =====" << endl;
+
+        cout << "Identificador: " << celulares[i].identificador << endl;
+        cout << "Nome: " << celulares[i].nome << endl;
+        cout << "Preco: " << celulares[i].preco << endl;
+        cout << "Quantidade: " << celulares[i].quantidade << endl;
+        cout << "Fabricante: " << celulares[i].fabricante << endl;
+        cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+        cout << "Descricao: " << celulares[i].descricao << endl;
+
         encontrado = true;
-
-        cout << "Identificador: " << identificador[j] << endl;
-        cout << "Nome: " << nome[j] << endl;
-        cout << "Preco: " << preco[j] << endl;
-        cout << "Quantidade: " << quantidade[j] << endl;
-        cout << "Fabricante: " << fabricante[j] << endl;
-        cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-        cout << "Descricao: " << descricao[j] << endl;
-
         cont++;
       }
     }
 
     if (!encontrado)
     {
-      cout << "CELULAR NAO ENCONTRADO!" << endl;
+      cout << endl
+           << "## CELULAR NAO ENCONTRADO!" << endl;
     }
     else
     {
@@ -355,37 +117,40 @@ void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int 
       cout << endl
            << "##################################" << endl;
     }
-
     break;
+  }
   case 3:
-    int anoCriacaoMinimo;
+  {
+    int anoCriacaoMin;
     cout << "Digite o ano de criacao minimo: ";
-    cin >> anoCriacaoMinimo;
+    cin >> anoCriacaoMin;
 
-    cout << "=== Celular Encontrado com no mínimo: " << anoCriacaoMinimo << " ===" << endl;
+    cout << "=== Celular Encontrado com o ano de criacao minimo de: " << anoCriacaoMin << " ===" << endl;
 
-    for (int j = 0; j < i; j++)
+    for (int i = 0; i < estoqueReal; i++)
     {
-      if (anoCriacao[j] >= anoCriacaoMinimo)
+      if (celulares[i].anoCriacao >= anoCriacaoMin)
       {
-        cout << endl;
+        cout << endl
+             << "===== Celular Encontrado =====" << endl;
+
+        cout << "Identificador: " << celulares[i].identificador << endl;
+        cout << "Nome: " << celulares[i].nome << endl;
+        cout << "Preco: " << celulares[i].preco << endl;
+        cout << "Quantidade: " << celulares[i].quantidade << endl;
+        cout << "Fabricante: " << celulares[i].fabricante << endl;
+        cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+        cout << "Descricao: " << celulares[i].descricao << endl;
+
         encontrado = true;
-
-        cout << "Identificador: " << identificador[j] << endl;
-        cout << "Nome: " << nome[j] << endl;
-        cout << "Preco: " << preco[j] << endl;
-        cout << "Quantidade: " << quantidade[j] << endl;
-        cout << "Fabricante: " << fabricante[j] << endl;
-        cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-        cout << "Descricao: " << descricao[j] << endl;
-
         cont++;
       }
     }
 
     if (!encontrado)
     {
-      cout << "CELULAR NAO ENCONTRADO!" << endl;
+      cout << endl
+           << "## CELULAR NAO ENCONTRADO!" << endl;
     }
     else
     {
@@ -395,37 +160,40 @@ void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int 
       cout << endl
            << "##################################" << endl;
     }
-
     break;
+  }
   case 4:
-    int anoCriacaoMaximo;
+  {
+    int anoCriacaoMax;
     cout << "Digite o ano de criacao maximo: ";
-    cin >> anoCriacaoMaximo;
+    cin >> anoCriacaoMax;
 
-    cout << "=== Celular Encontrado com no máximo: " << anoCriacaoMaximo << " ===" << endl;
+    cout << "=== Celular Encontrado com o ano de criacao maximo de: " << anoCriacaoMax << " ===" << endl;
 
-    for (int j = 0; j < i; j++)
+    for (int i = 0; i < estoqueReal; i++)
     {
-      if (anoCriacao[j] <= anoCriacaoMaximo)
+      if (celulares[i].anoCriacao <= anoCriacaoMax)
       {
-        cout << endl;
+        cout << endl
+             << "===== Celular Encontrado =====" << endl;
+
+        cout << "Identificador: " << celulares[i].identificador << endl;
+        cout << "Nome: " << celulares[i].nome << endl;
+        cout << "Preco: " << celulares[i].preco << endl;
+        cout << "Quantidade: " << celulares[i].quantidade << endl;
+        cout << "Fabricante: " << celulares[i].fabricante << endl;
+        cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+        cout << "Descricao: " << celulares[i].descricao << endl;
+
         encontrado = true;
-
-        cout << "Identificador: " << identificador[j] << endl;
-        cout << "Nome: " << nome[j] << endl;
-        cout << "Preco: " << preco[j] << endl;
-        cout << "Quantidade: " << quantidade[j] << endl;
-        cout << "Fabricante: " << fabricante[j] << endl;
-        cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-        cout << "Descricao: " << descricao[j] << endl;
-
         cont++;
       }
     }
 
     if (!encontrado)
     {
-      cout << "CELULAR NAO ENCONTRADO!" << endl;
+      cout << endl
+           << "## CELULAR NAO ENCONTRADO!" << endl;
     }
     else
     {
@@ -435,45 +203,47 @@ void buscarPorAnoCriacao(int identificador[], string nome[], float preco[], int 
       cout << endl
            << "##################################" << endl;
     }
-
     break;
+  }
   }
 }
 
-void buscarPorFabricante(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+void buscarPorFabricante(Celular celulares[], int estoqueReal)
 {
   system("clear");
 
-  string fabricanteCelular;
+  string fabricante;
   cout << "Digite o fabricante do celular: ";
-  cin >> fabricanteCelular;
+  cin >> fabricante;
+
+  cout << "=== Celular Encontrado com o fabricante: " << fabricante << " ===" << endl;
 
   bool encontrado = false;
   int cont = 0;
-  for (int j = 0; j < i; j++)
+  for (int i = 0; i < estoqueReal; i++)
   {
-    // Se tiver alguma parte do nome do celular que o usuario digitou no nome do celular do vetor
-    if (fabricante[j].find(fabricanteCelular) != string::npos) // string::npos = -1
+    if (celulares[i].fabricante.find(fabricante) != string::npos)
     {
       cout << endl
            << "===== Celular Encontrado =====" << endl;
+
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
       encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
       cont++;
     }
   }
 
   if (!encontrado)
   {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
   }
   else
   {
@@ -485,41 +255,42 @@ void buscarPorFabricante(int identificador[], string nome[], float preco[], int 
   }
 }
 
-void buscarPorQuantidade(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+void buscarPorQuantidade(Celular celulares[], int estoqueReal)
 {
   system("clear");
 
-  int quantidadeMin;
+  int quantidade;
   cout << "Digite a quantidade minima: ";
-  cin >> quantidadeMin;
+  cin >> quantidade;
+
+  cout << "=== Celular Encontrado com a quantidade minima de: " << quantidade << " unidades ===" << endl;
 
   bool encontrado = false;
   int cont = 0;
-
-  cout << "=== Celular Encontrado com no mínimo: " << quantidadeMin << " unidades" << endl;
-
-  for (int j = 0; j < i; j++)
+  for (int i = 0; i < estoqueReal; i++)
   {
-    if (quantidade[j] >= quantidadeMin)
+    if (celulares[i].quantidade >= quantidade)
     {
-      cout << endl;
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
       encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
       cont++;
     }
   }
 
   if (!encontrado)
   {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
   }
   else
   {
@@ -531,7 +302,7 @@ void buscarPorQuantidade(int identificador[], string nome[], float preco[], int 
   }
 }
 
-void buscarPorFaixaDePreco(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
 {
   system("clear");
 
@@ -541,33 +312,34 @@ void buscarPorFaixaDePreco(int identificador[], string nome[], float preco[], in
   cout << "Digite o preco maximo: ";
   cin >> precoMax;
 
-  bool encontrado = false;
-  int cont = 0;
-
   cout << "=== Celular Encontrado na entre: " << precoMin << " e " << precoMax << " ===" << endl;
 
-  for (int j = 0; j < i; j++)
+  bool encontrado = false;
+  int cont = 0;
+  for (int i = 0; i < estoqueReal; i++)
   {
-    if (preco[j] >= precoMin && preco[j] <= precoMax)
+    if (celulares[i].preco >= precoMin && celulares[i].preco <= precoMax)
     {
-      cout << endl;
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
       encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
       cont++;
     }
   }
 
   if (!encontrado)
   {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
   }
   else
   {
@@ -579,40 +351,40 @@ void buscarPorFaixaDePreco(int identificador[], string nome[], float preco[], in
   }
 }
 
-void buscarPorNome(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+void buscarPorNome(Celular celulares[], int estoqueReal)
 {
   system("clear");
 
-  string nomeCelular;
+  string nome;
   cout << "Digite o nome do celular: ";
-  cin >> nomeCelular;
+  cin >> nome;
 
   bool encontrado = false;
   int cont = 0;
-  for (int j = 0; j < i; j++)
+  for (int i = 0; i < estoqueReal; i++)
   {
-    // Se tiver alguma parte do nome do celular que o usuario digitou no nome do celular do vetor
-    if (nome[j].find(nomeCelular) != string::npos) // string::npos = -1
+    if (celulares[i].nome.find(nome) != string::npos)
     {
       cout << endl
            << "===== Celular Encontrado =====" << endl;
+
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
       encontrado = true;
-
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
-
       cont++;
     }
   }
 
   if (!encontrado)
   {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
   }
   else
   {
@@ -624,36 +396,36 @@ void buscarPorNome(int identificador[], string nome[], float preco[], int quanti
   }
 }
 
-void buscarPorIdentificador(int identificador[], string nome[], float preco[], int quantidade[], string fabricante[], int anoCriacao[], string descricao[], int i)
+void buscarPorIdentificador(Celular celulares[], int estoqueReal)
 {
-  system("clear");
-
-  int id;
+  int identificador;
   cout << "Digite o identificador do celular: ";
-  cin >> id;
+  cin >> identificador;
 
   bool encontrado = false;
-  for (int j = 0; j < i; j++)
+  for (int i = 0; i < estoqueReal; i++)
   {
-    if (id == identificador[j])
+    if (celulares[i].identificador == identificador)
     {
       cout << endl
            << "===== Celular Encontrado =====" << endl;
-      encontrado = true;
 
-      cout << "Identificador: " << identificador[j] << endl;
-      cout << "Nome: " << nome[j] << endl;
-      cout << "Preco: " << preco[j] << endl;
-      cout << "Quantidade: " << quantidade[j] << endl;
-      cout << "Fabricante: " << fabricante[j] << endl;
-      cout << "Ano de Criacao: " << anoCriacao[j] << endl;
-      cout << "Descricao: " << descricao[j] << endl;
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
+      encontrado = true;
     }
   }
 
   if (!encontrado)
   {
-    cout << "CELULAR NAO ENCONTRADO!" << endl;
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
   }
 }
 
@@ -672,6 +444,333 @@ void exibirMenuBuscarCelular()
   cout << "Opcao: ";
 }
 
+void alterarTodosDados(Celular celulares[], int estoqueReal)
+{
+  system("clear");
+
+  int identificador;
+  cout << "Digite o identificador do celular: ";
+  cin >> identificador;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < estoqueReal; j++)
+  {
+    if (celulares[j].identificador == identificador)
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << celulares[j].identificador << endl;
+      cout << "Nome: " << celulares[j].nome << endl;
+      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Fabricante: " << celulares[j].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
+      cout << "Descricao: " << celulares[j].descricao << endl;
+
+      cout << endl
+           << "Digite o novo nome: ";
+      getline(cin, celulares[j].nome);
+      cout << "Digite o novo preco: ";
+      cin >> celulares[j].preco;
+      cout << "Digite a nova quantidade: ";
+      cin >> celulares[j].quantidade;
+      cin.ignore();
+      cout << "Digite o novo fabricante: ";
+      getline(cin, celulares[j].fabricante);
+      cout << "Digite o novo ano de criacao: ";
+      cin >> celulares[j].anoCriacao;
+      cin.ignore();
+      cout << "Digite a nova descricao: ";
+      getline(cin, celulares[j].descricao);
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << celulares[j].identificador << endl;
+      cout << "Nome: " << celulares[j].nome << endl;
+      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Fabricante: " << celulares[j].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
+      cout << "Descricao: " << celulares[j].descricao << endl;
+
+      cout << endl
+           << "##################################" << endl;
+      cout << "Celular alterado com sucesso!" << endl
+           << "##################################" << endl;
+
+      int opcao;
+      cout << endl
+           << "1 - Voltar para o inicio" << endl;
+      cout << "2 - Alterar novamente" << endl;
+      cout << "Opcao: ";
+      cin >> opcao;
+
+      if (opcao == 2)
+      {
+        alterarTodosDados(celulares, estoqueReal);
+      }
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void alterarQuantidade(Celular celulares[], int estoqueReal)
+{
+  system("clear");
+
+  int identificador;
+  cout << "Digite o identificador do celular: ";
+  cin >> identificador;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < estoqueReal; j++)
+  {
+    if (celulares[j].identificador == identificador)
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << celulares[j].identificador << endl;
+      cout << "Nome: " << celulares[j].nome << endl;
+      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Fabricante: " << celulares[j].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
+      cout << "Descricao: " << celulares[j].descricao << endl;
+
+      cout << endl
+           << "Digite a nova quantidade: ";
+      cin >> celulares[j].quantidade;
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << celulares[j].identificador << endl;
+      cout << "Nome: " << celulares[j].nome << endl;
+      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Fabricante: " << celulares[j].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
+      cout << "Descricao: " << celulares[j].descricao << endl;
+
+      cout << endl
+           << "##################################" << endl;
+      cout << "Celular alterado com sucesso!" << endl
+           << "##################################" << endl;
+
+      int opcao;
+      cout << endl
+           << "1 - Voltar para o inicio" << endl;
+      cout << "2 - Alterar novamente" << endl;
+
+      cout << "Opcao: ";
+      cin >> opcao;
+
+      if (opcao == 2)
+      {
+        alterarQuantidade(celulares, estoqueReal);
+      }
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void alterarPreco(Celular celulares[], int estoqueReal)
+
+{
+  system("clear");
+
+  int identificador;
+  cout << "Digite o identificador do celular: ";
+  cin >> identificador;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int j = 0; j < estoqueReal; j++)
+  {
+    if (celulares[j].identificador == identificador)
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << celulares[j].identificador << endl;
+      cout << "Nome: " << celulares[j].nome << endl;
+      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Fabricante: " << celulares[j].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
+      cout << "Descricao: " << celulares[j].descricao << endl;
+
+      cout << endl
+           << "Digite o novo preco: ";
+      int preco;
+      cin >> preco;
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << celulares[j].identificador << endl;
+      cout << "Nome: " << celulares[j].nome << endl;
+      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Fabricante: " << celulares[j].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
+      cout << "Descricao: " << celulares[j].descricao << endl;
+
+      int cancelar;
+      cout << endl
+           << "Deseja cancelar? (-1 sim / 0 - nao): ";
+      cin >> cancelar;
+      if (cancelar == -1)
+      {
+        cout << endl
+             << "##################################" << endl;
+        cout << "Alteracao cancelada!" << endl
+             << "##################################" << endl;
+      }
+      else
+      {
+        celulares[j].preco = preco;
+        cout << endl
+             << "##################################" << endl;
+        cout << "Celular alterado com sucesso!" << endl
+             << "##################################" << endl;
+      }
+
+      int opcao;
+      cout << endl
+           << "1 - Voltar para o inicio" << endl;
+      cout << "2 - Alterar novamente" << endl;
+
+      cout << "Opcao: ";
+      cin >> opcao;
+
+      if (opcao == 2)
+      {
+        alterarPreco(celulares, estoqueReal);
+      }
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void alterarNome(Celular celulares[], int estoqueReal)
+{
+  system("clear");
+
+  int identificador;
+  cout << "Digite o identificador do celular: ";
+  cin >> identificador;
+  cin.ignore();
+
+  bool encontrado = false;
+  for (int i = 0; i < estoqueReal; i++)
+  {
+    if (celulares[i].identificador == identificador)
+    {
+      cout << endl
+           << "===== Celular Encontrado =====" << endl;
+      encontrado = true;
+
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
+      cout << endl
+           << "Digite o novo nome: ";
+      string resposta;
+      getline(cin, resposta);
+
+      cout << endl
+           << "===== Celular Alterado =====" << endl;
+      cout << "Identificador: " << celulares[i].identificador << endl;
+      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Preco: " << celulares[i].preco << endl;
+      cout << "Quantidade: " << celulares[i].quantidade << endl;
+      cout << "Fabricante: " << celulares[i].fabricante << endl;
+      cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+      cout << "Descricao: " << celulares[i].descricao << endl;
+
+      // opção de cancelar
+      int cancelar;
+      cout << endl
+           << "Deseja cancelar? (-1 sim / 0 - nao): ";
+      cin >> cancelar;
+      if (cancelar == -1)
+      {
+        cout << endl
+             << "##################################" << endl;
+        cout << "Alteracao cancelada!" << endl
+             << "##################################" << endl;
+      }
+      else
+      {
+        celulares[i].nome = resposta;
+        cout << endl
+             << "##################################" << endl;
+        cout << "Celular alterado com sucesso!" << endl
+             << "##################################" << endl;
+      }
+
+      int opcao;
+      cout << endl
+           << "1 - Voltar para o inicio" << endl;
+      cout << "2 - Alterar novamente" << endl;
+
+      cout << "Opcao: ";
+      cin >> opcao;
+
+      if (opcao == 2)
+      {
+        alterarNome(celulares, estoqueReal);
+      }
+    }
+  }
+
+  if (!encontrado)
+  {
+    cout << endl
+         << "## CELULAR NAO ENCONTRADO!" << endl;
+  }
+}
+
+void exibirMenuAlterarCelular()
+{
+  system("clear");
+
+  cout << "===== Alterar Celular =====" << endl;
+  cout << "1 - Alterar Nome" << endl;
+  cout << "2 - Alterar Preco" << endl;
+  cout << "3 - Alterar Quantidade" << endl;
+  cout << "4 - Alterar Todos os Dados" << endl;
+  cout << "5 - Deseja buscar primeiro? (voce vai precisar do identificador)" << endl;
+  cout << "0 - Voltar" << endl;
+  cout << "Opcao: ";
+}
+
 void exibirMenu()
 {
   system("clear");
@@ -683,7 +782,7 @@ void exibirMenu()
   cout << "4 - Alterar Celular" << endl;
   cout << "5 - Exportar para CSV" << endl;
   cout << "6 - Importar de CSV" << endl;
-  cout << "7 - Ordenacoes" << endl;
+  cout << "7 - Ordenar" << endl;
   cout << "0 - Sair" << endl;
   cout << "Opcao: ";
 }
@@ -702,54 +801,50 @@ int main()
   string linha;
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
-  // separar cada linha do arquivo
-  int identificador[100];
-  string nome[100];
-  float preco[100];
-  int quantidade[100];
-  string fabricante[100];
-  int anoCriacao[100];
-  string descricao[100];
+  // utilizando struct para armazenar os dados do arquivo
+  int estoqueMax = 100;
+  Celular celulares[estoqueMax];
+  int estoqueReal = 0;
 
-  int i = 0; // contador de celulares real
-  while (!arquivoIn.eof())
+  bool continuar = true;
+  while (continuar)
   {
     getline(arquivoIn, linha);
-
     if (linha == "")
     {
-      continue;
+      continuar = false;
     }
+    else
+    {
+      // separando os dados da linha
+      int pos = linha.find(";");
+      celulares[estoqueReal].identificador = stoi(linha.substr(0, pos));
+      linha = linha.substr(pos + 1);
 
-    // identificador
-    int pos = linha.find(";");
-    identificador[i] = stoi(linha.substr(0, pos)); // stoi converte string para int
+      pos = linha.find(";");
+      celulares[estoqueReal].nome = linha.substr(0, pos);
+      linha = linha.substr(pos + 1);
 
-    // nome
-    int pos2 = linha.find(";", pos + 1);
-    nome[i] = linha.substr(pos + 1, pos2 - pos - 1);
+      pos = linha.find(";");
+      celulares[estoqueReal].preco = stof(linha.substr(0, pos));
+      linha = linha.substr(pos + 1);
 
-    // preco
-    pos = linha.find(";", pos2 + 1);
-    preco[i] = stof(linha.substr(pos2 + 1, pos - pos2 - 1)); // stof converte string para float
+      pos = linha.find(";");
+      celulares[estoqueReal].quantidade = stoi(linha.substr(0, pos));
+      linha = linha.substr(pos + 1);
 
-    // quantidade
-    pos2 = linha.find(";", pos + 1);
-    quantidade[i] = stoi(linha.substr(pos + 1, pos2 - pos - 1));
+      pos = linha.find(";");
+      celulares[estoqueReal].fabricante = linha.substr(0, pos);
+      linha = linha.substr(pos + 1);
 
-    // fabricante
-    pos = linha.find(";", pos2 + 1);
-    fabricante[i] = linha.substr(pos2 + 1, pos - pos2 - 1);
+      pos = linha.find(";");
+      celulares[estoqueReal].anoCriacao = stoi(linha.substr(0, pos));
+      linha = linha.substr(pos + 1);
 
-    // anoCriacao
-    pos2 = linha.find(";", pos + 1);
-    anoCriacao[i] = stoi(linha.substr(pos + 1, pos2 - pos - 1));
+      celulares[estoqueReal].descricao = linha;
 
-    // descricao
-    pos = linha.find(";", pos2 + 1);
-    descricao[i] = linha.substr(pos2 + 1, pos - pos2 - 1);
-
-    i++;
+      estoqueReal++;
+    }
   }
   arquivoIn.close();
 
@@ -781,23 +876,26 @@ int main()
 
         switch (opcaoBuscarCelular)
         {
+
         case 1:
-          buscarPorIdentificador(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorIdentificador(celulares, estoqueReal);
           break;
         case 2:
-          buscarPorNome(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorNome(celulares, estoqueReal);
           break;
         case 3:
-          buscarPorFaixaDePreco(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorFaixaDePreco(celulares, estoqueReal);
           break;
         case 4:
-          buscarPorQuantidade(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorQuantidade(celulares, estoqueReal);
           break;
         case 5:
-          buscarPorFabricante(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorFabricante(celulares, estoqueReal);
           break;
         case 6:
-          buscarPorAnoCriacao(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          buscarPorAnoCriacao(celulares, estoqueReal);
+          break;
+
         default:
           cout << "Opcao invalida!" << endl;
           break;
@@ -826,21 +924,66 @@ int main()
         switch (opcaoAlterarCelular)
         {
         case 1:
-          alterarNome(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          alterarNome(celulares, estoqueReal);
           break;
         case 2:
-          alterarPreco(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          alterarPreco(celulares, estoqueReal);
           break;
         case 3:
-          alterarQuantidade(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
-        case 4:
-          alterarTodosOsDados(identificador, nome, preco, quantidade, fabricante, anoCriacao, descricao, i);
+          alterarQuantidade(celulares, estoqueReal);
           break;
+        case 4:
+          alterarTodosDados(celulares, estoqueReal);
+          break;
+        case 5:
+          do
+          {
+            exibirMenuBuscarCelular();
+            cin >> opcaoBuscarCelular;
+
+            switch (opcaoBuscarCelular)
+            {
+
+            case 1:
+              buscarPorIdentificador(celulares, estoqueReal);
+              break;
+            case 2:
+              buscarPorNome(celulares, estoqueReal);
+              break;
+            case 3:
+              buscarPorFaixaDePreco(celulares, estoqueReal);
+              break;
+            case 4:
+              buscarPorQuantidade(celulares, estoqueReal);
+              break;
+            case 5:
+              buscarPorFabricante(celulares, estoqueReal);
+              break;
+            case 6:
+              buscarPorAnoCriacao(celulares, estoqueReal);
+              break;
+
+            default:
+              cout << "Opcao invalida!" << endl;
+              break;
+            }
+
+            if (opcaoBuscarCelular != 0)
+            {
+              cout << endl
+                   << "Gostaria de consultar novamente?" << endl;
+              cout << "1 - Sim" << endl;
+              cout << "2 - Nao" << endl;
+              cout << "Opcao: ";
+              cin >> opcaoConsultaNovamente;
+            }
+          } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
+          break;
+
         default:
           cout << "Opcao invalida!" << endl;
           break;
         }
-
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
       break;
     }

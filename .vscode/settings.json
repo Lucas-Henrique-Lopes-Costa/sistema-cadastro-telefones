@@ -10,7 +10,8 @@
     "istream": "cpp",
     "string": "cpp",
     "fstream": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "iostream": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
