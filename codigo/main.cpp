@@ -897,6 +897,7 @@ void CadastrarCelular(Celular celulares[], int &estoqueReal)
   int opcao;
   cout << "1 - Sim" << endl;
   cout << "0 - Nao (Voltar para o Inicio)" << endl;
+  cout<<"Opcao: ";
   cin >> opcao;
   cin.ignore();
   if (opcao == 1)
@@ -926,14 +927,14 @@ void CadastrarCelular(Celular celulares[], int &estoqueReal)
     system(clearCommand.c_str());
 
     cout<<"Celular cadastrado com sucesso"<<endl;
-    cout<<"as informacoes do celular cadastrado sao: "<<endl;
-    cout<<"Numero de Identificador: "<<celulares[estoqueReal].identificador<<endl;
+    cout<<"As informacoes do celular cadastrado sao: "<<endl;
+    cout<<"Numero de Identificacao: "<<celulares[estoqueReal].identificador<<endl;
     cout<<"Nome: "<<celulares[estoqueReal].nome<<endl;    
     cout<<"Preco: "<<celulares[estoqueReal].preco<<endl;
-    cout<<"quantidade "<<celulares[estoqueReal].quantidade<<endl;
-    cout<<"Fabricante "<<celulares[estoqueReal].fabricante<<endl;
-    cout<<"ano "<<celulares[estoqueReal].anoCriacao<<endl;
-    cout<<"desc "<<celulares[estoqueReal].descricao<<endl;
+    cout<<"Quantidade em estoque: "<<celulares[estoqueReal].quantidade<<endl;
+    cout<<"Fabricante do Aparelho: "<<celulares[estoqueReal].fabricante<<endl;
+    cout<<"Ano de Criacao: "<<celulares[estoqueReal].anoCriacao<<endl;
+    cout<<"Descricao do produto:  "<<celulares[estoqueReal].descricao<<endl;
 
     cout << "Digite '0' Para Voltar: ";
     char voltar;
