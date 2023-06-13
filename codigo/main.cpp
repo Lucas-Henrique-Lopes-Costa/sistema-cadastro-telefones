@@ -73,7 +73,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
     if (!encontrado)
     {
       cout << endl
-           << "## CELULAR NAO ENCONTRADO!" << endl;
+           << "## CELULAR NAO ENCONTRADO! ##" << endl;
     }
     else
     {
@@ -118,7 +118,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
     if (!encontrado)
     {
       cout << endl
-           << "## CELULAR NAO ENCONTRADO!" << endl;
+           << "## CELULAR NAO ENCONTRADO! ##" << endl;
     }
     else
     {
@@ -161,7 +161,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
     if (!encontrado)
     {
       cout << endl
-           << "## CELULAR NAO ENCONTRADO!" << endl;
+           << "## CELULAR NAO ENCONTRADO! ##" << endl;
     }
     else
     {
@@ -204,7 +204,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
     if (!encontrado)
     {
       cout << endl
-           << "## CELULAR NAO ENCONTRADO!" << endl;
+           << "## CELULAR NAO ENCONTRADO! ##" << endl;
     }
     else
     {
@@ -227,7 +227,7 @@ void buscarPorFabricante(Celular celulares[], int estoqueReal)
   cout << "Digite o fabricante do celular: ";
   cin >> fabricante;
 
-  cout << "=== Celular Encontrado com o fabricante: " << fabricante << " ===" << endl;
+  cout << "=== Celular Encontrado com o Fabricante: " << fabricante << " ===" << endl;
 
   bool encontrado = false;
   int cont = 0;
@@ -254,7 +254,7 @@ void buscarPorFabricante(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
   else
   {
@@ -274,7 +274,7 @@ void buscarPorQuantidade(Celular celulares[], int estoqueReal)
   cout << "Digite a quantidade minima: ";
   cin >> quantidade;
 
-  cout << "=== Celular Encontrado com a quantidade minima de: " << quantidade << " unidades ===" << endl;
+  cout << "=== Filtro de: " << quantidade << " unidades ===" << endl;
 
   bool encontrado = false;
   int cont = 0;
@@ -301,7 +301,7 @@ void buscarPorQuantidade(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
   else
   {
@@ -323,14 +323,13 @@ void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
   cout << "Digite o preco maximo: ";
   cin >> precoMax;
 
-  cout << "=== Celular Encontrado na entre: " << precoMin << " e " << precoMax << " ===" << endl;
-
   bool encontrado = false;
   int cont = 0;
   for (int i = 0; i < estoqueReal; i++)
   {
     if (celulares[i].preco >= precoMin && celulares[i].preco <= precoMax)
     {
+      cout << "=== Filtro de : " << precoMin << " até " << precoMax << " dolares ===" << endl;
       cout << endl
            << "===== Celular Encontrado =====" << endl;
 
@@ -350,7 +349,7 @@ void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
   else
   {
@@ -395,7 +394,7 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
   else
   {
@@ -409,6 +408,8 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
 
 void buscarPorIdentificador(Celular celulares[], int estoqueReal)
 {
+  system(clearCommand.c_str());
+
   int identificador;
   cout << "Digite o identificador do celular: ";
   cin >> identificador;
@@ -436,7 +437,7 @@ void buscarPorIdentificador(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
 }
 
@@ -497,8 +498,9 @@ void alterarTodosDados(Celular celulares[], int estoqueReal)
       cout << "Digite a nova descricao: ";
       getline(cin, celulares[j].descricao);
 
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
+      system(clearCommand.c_str());
+
+      cout << "===== Celular Alterado =====" << endl;
       cout << "Identificador: " << celulares[j].identificador << endl;
       cout << "Nome: " << celulares[j].nome << endl;
       cout << "Preco: " << celulares[j].preco << endl;
@@ -529,7 +531,7 @@ void alterarTodosDados(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
 }
 
@@ -561,22 +563,39 @@ void alterarQuantidade(Celular celulares[], int estoqueReal)
 
       cout << endl
            << "Digite a nova quantidade: ";
-      cin >> celulares[j].quantidade;
+      int resposta;
+      cin >> resposta;
 
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
+      system(clearCommand.c_str());
+
+      cout << "===== Celular Alterado =====" << endl;
       cout << "Identificador: " << celulares[j].identificador << endl;
       cout << "Nome: " << celulares[j].nome << endl;
       cout << "Preco: " << celulares[j].preco << endl;
-      cout << "Quantidade: " << celulares[j].quantidade << endl;
+      cout << "Quantidade: " << resposta << endl;
       cout << "Fabricante: " << celulares[j].fabricante << endl;
       cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
       cout << "Descricao: " << celulares[j].descricao << endl;
 
+      string cancelar;
       cout << endl
-           << "##################################" << endl;
-      cout << "Celular alterado com sucesso!" << endl
-           << "##################################" << endl;
+           << "Deseja salvar? (sim / nao): ";
+      cin >> cancelar;
+      if (cancelar == "nao")
+      {
+        cout << endl
+             << "##################################" << endl;
+        cout << "Alteracao cancelada!" << endl
+             << "##################################" << endl;
+      }
+      else
+      {
+        celulares[j].quantidade = resposta;
+        cout << endl
+             << "##################################" << endl;
+        cout << "Celular alterado com sucesso!" << endl
+             << "##################################" << endl;
+      }
 
       int opcao;
       cout << endl
@@ -596,7 +615,7 @@ void alterarQuantidade(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
 }
 
@@ -628,24 +647,25 @@ void alterarPreco(Celular celulares[], int estoqueReal)
 
       cout << endl
            << "Digite o novo preco: ";
-      int preco;
-      cin >> preco;
+      float resposta;
+      cin >> resposta;
 
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
+      system(clearCommand.c_str());
+
+      cout << "===== Celular Alterado =====" << endl;
       cout << "Identificador: " << celulares[j].identificador << endl;
       cout << "Nome: " << celulares[j].nome << endl;
-      cout << "Preco: " << celulares[j].preco << endl;
+      cout << "Preco: " << resposta << endl;
       cout << "Quantidade: " << celulares[j].quantidade << endl;
       cout << "Fabricante: " << celulares[j].fabricante << endl;
       cout << "Ano de Criacao: " << celulares[j].anoCriacao << endl;
       cout << "Descricao: " << celulares[j].descricao << endl;
 
-      int cancelar;
+      string cancelar;
       cout << endl
-           << "Deseja cancelar? (-1 sim / 0 - nao): ";
+           << "Deseja salvar? (sim / nao): ";
       cin >> cancelar;
-      if (cancelar == -1)
+      if (cancelar == "nao")
       {
         cout << endl
              << "##################################" << endl;
@@ -654,7 +674,7 @@ void alterarPreco(Celular celulares[], int estoqueReal)
       }
       else
       {
-        celulares[j].preco = preco;
+        celulares[j].preco = resposta;
         cout << endl
              << "##################################" << endl;
         cout << "Celular alterado com sucesso!" << endl
@@ -679,7 +699,7 @@ void alterarPreco(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
 }
 
@@ -714,10 +734,11 @@ void alterarNome(Celular celulares[], int estoqueReal)
       string resposta;
       getline(cin, resposta);
 
-      cout << endl
-           << "===== Celular Alterado =====" << endl;
+      system(clearCommand.c_str());
+
+      cout << "===== Celular Alterado =====" << endl;
       cout << "Identificador: " << celulares[i].identificador << endl;
-      cout << "Nome: " << celulares[i].nome << endl;
+      cout << "Nome: " << resposta << endl;
       cout << "Preco: " << celulares[i].preco << endl;
       cout << "Quantidade: " << celulares[i].quantidade << endl;
       cout << "Fabricante: " << celulares[i].fabricante << endl;
@@ -725,11 +746,11 @@ void alterarNome(Celular celulares[], int estoqueReal)
       cout << "Descricao: " << celulares[i].descricao << endl;
 
       // opção de cancelar
-      int cancelar;
+      string cancelar;
       cout << endl
-           << "Deseja cancelar? (-1 sim / 0 - nao): ";
+           << "Deseja salvar? (sim / nao): ";
       cin >> cancelar;
-      if (cancelar == -1)
+      if (cancelar == "nao")
       {
         cout << endl
              << "##################################" << endl;
@@ -763,7 +784,7 @@ void alterarNome(Celular celulares[], int estoqueReal)
   if (!encontrado)
   {
     cout << endl
-         << "## CELULAR NAO ENCONTRADO!" << endl;
+         << "## CELULAR NAO ENCONTRADO! ##" << endl;
   }
 }
 
