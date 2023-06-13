@@ -3,6 +3,17 @@
 #include <cstring>
 using namespace std;
 
+// encontrando o sistema operacional
+string getClearCommand()
+{
+#ifdef _WIN32
+  return "cls"; // Comando de limpeza no Windows
+#else
+  return "clear"; // Comando de limpeza em sistemas Unix
+#endif
+}
+string clearCommand = getClearCommand();
+
 struct Celular
 {
   int identificador;
@@ -16,7 +27,7 @@ struct Celular
 
 void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   int opcao;
   cout << "===== Buscar por Ano de Criacao =====" << endl;
@@ -210,7 +221,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 
 void buscarPorFabricante(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   string fabricante;
   cout << "Digite o fabricante do celular: ";
@@ -257,7 +268,7 @@ void buscarPorFabricante(Celular celulares[], int estoqueReal)
 
 void buscarPorQuantidade(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   int quantidade;
   cout << "Digite a quantidade minima: ";
@@ -304,7 +315,7 @@ void buscarPorQuantidade(Celular celulares[], int estoqueReal)
 
 void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   float precoMin, precoMax;
   cout << "Digite o preco minimo: ";
@@ -353,7 +364,7 @@ void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
 
 void buscarPorNome(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   string nome;
   cout << "Digite o nome do celular: ";
@@ -431,7 +442,7 @@ void buscarPorIdentificador(Celular celulares[], int estoqueReal)
 
 void exibirMenuBuscarCelular()
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   cout << "===== Buscar Celular =====" << endl;
   cout << "1 - Por Identificador" << endl;
@@ -446,7 +457,7 @@ void exibirMenuBuscarCelular()
 
 void alterarTodosDados(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   int identificador;
   cout << "Digite o identificador do celular: ";
@@ -524,7 +535,7 @@ void alterarTodosDados(Celular celulares[], int estoqueReal)
 
 void alterarQuantidade(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   int identificador;
   cout << "Digite o identificador do celular: ";
@@ -590,9 +601,8 @@ void alterarQuantidade(Celular celulares[], int estoqueReal)
 }
 
 void alterarPreco(Celular celulares[], int estoqueReal)
-
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   int identificador;
   cout << "Digite o identificador do celular: ";
@@ -675,7 +685,7 @@ void alterarPreco(Celular celulares[], int estoqueReal)
 
 void alterarNome(Celular celulares[], int estoqueReal)
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   int identificador;
   cout << "Digite o identificador do celular: ";
@@ -759,7 +769,7 @@ void alterarNome(Celular celulares[], int estoqueReal)
 
 void exibirMenuAlterarCelular()
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   cout << "===== Alterar Celular =====" << endl;
   cout << "1 - Alterar Nome" << endl;
@@ -773,7 +783,7 @@ void exibirMenuAlterarCelular()
 
 void exibirMenu()
 {
-  system("clear");
+  system(clearCommand.c_str());
 
   cout << "===== Sistema de Cadastro de Celulares =====" << endl;
   cout << "1 - Cadastrar Celular" << endl;
