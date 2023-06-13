@@ -25,6 +25,102 @@ struct Celular
   string descricao;
 };
 
+void ExportarParaArquivo(Celular celulares[], int estoqueReal)
+{
+  system(clearCommand.c_str());
+
+  char opcao;
+  cout << "===== Exportar em arquivos =====" << endl;
+  cout << "1 - Salvar em .csv (Recomendado)" << endl;
+  cout << "2 - Salvar em .txt" << endl;
+  cout << "3 - Salvar em outro formato" << endl;
+  cout << "0 - Voltar para o inicio" << endl;
+  cout << "Opcao: ";
+  cin >> opcao;
+
+  switch (opcao)
+  {
+  case '2':
+  {
+    string nomeArquivo;
+    cout << "Digite o nome desejado para o arquivo (sem .txt): ";
+    cin >> nomeArquivo;
+    ofstream NomeArqvSaida(nomeArquivo + ".txt");
+    NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
+    for (int i = 0; i < estoqueReal; i++)
+    {
+      NomeArqvSaida << celulares[i].identificador << ";";
+      NomeArqvSaida << celulares[i].nome << ";";
+      NomeArqvSaida << celulares[i].preco << ";";
+      NomeArqvSaida << celulares[i].quantidade << ";";
+      NomeArqvSaida << celulares[i].fabricante << ";";
+      NomeArqvSaida << celulares[i].anoCriacao << ";";
+      NomeArqvSaida << celulares[i].descricao;
+      NomeArqvSaida << endl;
+    }
+    cout << "Salvo com sucesso!" << endl;
+    cout << "Digite '0' Para Voltar: ";
+    char voltar;
+    cin >> voltar;
+    break;
+  }
+  case '1':
+  {
+    string nomeArquivo;
+    cout << "Digite o nome desejado para o arquivo (sem .csv): ";
+    cin >> nomeArquivo;
+    ofstream NomeArqvSaida(nomeArquivo + ".csv");
+    NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
+    for (int i = 0; i < estoqueReal; i++)
+    {
+      NomeArqvSaida << celulares[i].identificador << ";";
+      NomeArqvSaida << celulares[i].nome << ";";
+      NomeArqvSaida << celulares[i].preco << ";";
+      NomeArqvSaida << celulares[i].quantidade << ";";
+      NomeArqvSaida << celulares[i].fabricante << ";";
+      NomeArqvSaida << celulares[i].anoCriacao << ";";
+      NomeArqvSaida << celulares[i].descricao;
+      NomeArqvSaida << endl;
+    }
+    cout << "Salvo com sucesso!" << endl;
+    cout << "Digite '0' Para Voltar: ";
+    char voltar;
+    cin >> voltar;
+    break;
+  }
+  case '3':
+  {
+    string nomeArquivo;
+    cout << "Digite o nome desejado para o arquivo, sem o tipo: ";
+    cin >> nomeArquivo;
+    string tipoDoArquivo;
+    cout << endl
+         << "Digite o tipo do arquivo: ";
+    cin >> tipoDoArquivo;
+    ofstream NomeArqvSaida(nomeArquivo + tipoDoArquivo);
+    NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
+    for (int i = 0; i < estoqueReal; i++)
+    {
+      NomeArqvSaida << celulares[i].identificador << ";";
+      NomeArqvSaida << celulares[i].nome << ";";
+      NomeArqvSaida << celulares[i].preco << ";";
+      NomeArqvSaida << celulares[i].quantidade << ";";
+      NomeArqvSaida << celulares[i].fabricante << ";";
+      NomeArqvSaida << celulares[i].anoCriacao << ";";
+      NomeArqvSaida << celulares[i].descricao;
+      NomeArqvSaida << endl;
+    }
+    cout << "Salvo com sucesso!" << endl;
+    cout << "Digite '0' Para Voltar: ";
+    char voltar;
+    cin >> voltar;
+    break;
+  }
+  default:
+    break;
+  }
+}
+
 void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -50,7 +146,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 
     cout << "=== Celular Encontrado com o ano de criacao: " << anoCriacao << " ===" << endl;
 
-    for (int i = 0; i < estoqueReal; i++)
+    for (int i = 0; i <= estoqueReal; i++)
     {
       if (celulares[i].anoCriacao == anoCriacao)
       {
@@ -231,7 +327,7 @@ void buscarPorFabricante(Celular celulares[], int estoqueReal)
 
   bool encontrado = false;
   int cont = 0;
-  for (int i = 0; i < estoqueReal; i++)
+  for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].fabricante.find(fabricante) != string::npos)
     {
@@ -278,7 +374,7 @@ void buscarPorQuantidade(Celular celulares[], int estoqueReal)
 
   bool encontrado = false;
   int cont = 0;
-  for (int i = 0; i < estoqueReal; i++)
+  for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].quantidade >= quantidade)
     {
@@ -325,7 +421,7 @@ void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
 
   bool encontrado = false;
   int cont = 0;
-  for (int i = 0; i < estoqueReal; i++)
+  for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].preco >= precoMin && celulares[i].preco <= precoMax)
     {
@@ -371,7 +467,7 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
 
   bool encontrado = false;
   int cont = 0;
-  for (int i = 0; i < estoqueReal; i++)
+  for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].nome.find(nome) != string::npos)
     {
@@ -415,7 +511,7 @@ void buscarPorIdentificador(Celular celulares[], int estoqueReal)
   cin >> identificador;
 
   bool encontrado = false;
-  for (int i = 0; i < estoqueReal; i++)
+  for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].identificador == identificador)
     {
@@ -788,6 +884,65 @@ void alterarNome(Celular celulares[], int estoqueReal)
   }
 }
 
+void CadastrarCelular(Celular celulares[], int &estoqueReal)
+
+{
+  system(clearCommand.c_str());
+
+  cout << "===== Cadastro de um novo SmartPhone =====" << endl;
+
+  cout << "Para cadastrar um novo celular, serao necessarios: o nome, preco, quatidade em estoque, nome do fabricante," << endl
+       << " ano de criacao e uma descricao sobre o produto, deseja continuar?" << endl;
+
+  int opcao;
+  cout << "1 - Sim" << endl;
+  cout << "0 - Nao (Voltar para o Inicio)" << endl;
+  cin >> opcao;
+  cin.ignore();
+  if (opcao == 1)
+  {
+    estoqueReal += 1;
+    celulares[estoqueReal].identificador=estoqueReal;
+    cout << endl
+         << "Digite o Nome do Produto: ";
+    getline(cin, celulares[estoqueReal].nome);
+    cout
+        << "Digite o preco do produto: ";
+    cin >> celulares[estoqueReal].preco;
+    cout
+        << "Digite a quantidade em estoque: ";
+    cin >> celulares[estoqueReal].quantidade;
+    cout
+        << "Digite o Nome do fabricante: ";
+    cin >> celulares[estoqueReal].fabricante;
+    cout
+        << "Digite o ano de criacao do aparelho: ";
+    cin >> celulares[estoqueReal].anoCriacao;
+    cin.ignore();
+    cout
+        << "Digite a descricao do produto: ";
+    getline(cin, celulares[estoqueReal].descricao);
+
+    system(clearCommand.c_str());
+
+    cout<<"Celular cadastrado com sucesso"<<endl;
+    cout<<"as informacoes do celular cadastrado sao: "<<endl;
+    cout<<"Numero de Identificador: "<<celulares[estoqueReal].identificador<<endl;
+    cout<<"Nome: "<<celulares[estoqueReal].nome<<endl;    
+    cout<<"Preco: "<<celulares[estoqueReal].preco<<endl;
+    cout<<"quantidade "<<celulares[estoqueReal].quantidade<<endl;
+    cout<<"Fabricante "<<celulares[estoqueReal].fabricante<<endl;
+    cout<<"ano "<<celulares[estoqueReal].anoCriacao<<endl;
+    cout<<"desc "<<celulares[estoqueReal].descricao<<endl;
+
+    cout << "Digite '0' Para Voltar: ";
+    char voltar;
+    cin >> voltar;
+
+
+  }
+}
+
 void exibirMenuAlterarCelular()
 {
   system(clearCommand.c_str());
@@ -811,7 +966,7 @@ void exibirMenu()
   cout << "2 - Remover Celular" << endl;
   cout << "3 - Buscar Celular" << endl;
   cout << "4 - Alterar Celular" << endl;
-  cout << "5 - Exportar para CSV" << endl;
+  cout << "5 - Exportar Arquivo" << endl;
   cout << "6 - Importar de CSV" << endl;
   cout << "0 - Sair" << endl;
   cout << "Opcao: ";
@@ -832,7 +987,7 @@ int main()
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
   // utilizando struct para armazenar os dados do arquivo
-  int estoqueMax = 100;
+  const int estoqueMax = 100;
   Celular celulares[estoqueMax];
   int estoqueReal = 0;
 
@@ -891,6 +1046,11 @@ int main()
     {
     case 1:
     { // Cadastrar Celular
+      do
+      {
+        CadastrarCelular(celulares, estoqueReal);
+      } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
+
       break;
     }
     case 2:
@@ -1019,6 +1179,12 @@ int main()
     }
     case 5:
     { // Exportar para CSV
+      do
+      {
+        ExportarParaArquivo(celulares, estoqueReal);
+
+      } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
+
       break;
     }
     case 6:
