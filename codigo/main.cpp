@@ -31,7 +31,7 @@ void ExportarParaArquivo(Celular celulares[], int estoqueReal)
 
   char opcao;
   cout << "===== Exportar em arquivos =====" << endl;
-  cout << "1 - Salvar em .csv (Recomendado)" << endl;
+  cout << "1 - Salvar em .csv (recomendado)" << endl;
   cout << "2 - Salvar em .txt" << endl;
   cout << "3 - Salvar em outro formato" << endl;
   cout << "0 - Voltar para o inicio" << endl;
@@ -43,7 +43,8 @@ void ExportarParaArquivo(Celular celulares[], int estoqueReal)
   case '2':
   {
     string nomeArquivo;
-    cout << "Digite o nome desejado para o arquivo (sem .txt): ";
+    cout << endl
+         << "Digite o nome desejado para o arquivo (sem .txt): ";
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo + ".txt");
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
@@ -58,7 +59,10 @@ void ExportarParaArquivo(Celular celulares[], int estoqueReal)
       NomeArqvSaida << celulares[i].descricao;
       NomeArqvSaida << endl;
     }
-    cout << "Salvo com sucesso!" << endl;
+    cout << endl
+         << "##################################" << endl;
+    cout << "Exportado com sucesso!" << endl
+         << "##################################" << endl;
     cout << "Digite '0' Para Voltar: ";
     char voltar;
     cin >> voltar;
@@ -82,7 +86,10 @@ void ExportarParaArquivo(Celular celulares[], int estoqueReal)
       NomeArqvSaida << celulares[i].descricao;
       NomeArqvSaida << endl;
     }
-    cout << "Salvo com sucesso!" << endl;
+    cout << endl
+         << "##################################" << endl;
+    cout << "Exportado com sucesso!" << endl
+         << "##################################" << endl;
     cout << "Digite '0' Para Voltar: ";
     char voltar;
     cin >> voltar;
@@ -91,13 +98,9 @@ void ExportarParaArquivo(Celular celulares[], int estoqueReal)
   case '3':
   {
     string nomeArquivo;
-    cout << "Digite o nome desejado para o arquivo, sem o tipo: ";
+    cout << "Digite o nome desejado para o arquivo, com o tipo (novosCelulares.xls): ";
     cin >> nomeArquivo;
-    string tipoDoArquivo;
-    cout << endl
-         << "Digite o tipo do arquivo: ";
-    cin >> tipoDoArquivo;
-    ofstream NomeArqvSaida(nomeArquivo + tipoDoArquivo);
+    ofstream NomeArqvSaida(nomeArquivo);
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
     for (int i = 0; i < estoqueReal; i++)
     {
@@ -110,7 +113,10 @@ void ExportarParaArquivo(Celular celulares[], int estoqueReal)
       NomeArqvSaida << celulares[i].descricao;
       NomeArqvSaida << endl;
     }
-    cout << "Salvo com sucesso!" << endl;
+    cout << endl
+         << "##################################" << endl;
+    cout << "Exportado com sucesso!" << endl
+         << "##################################" << endl;
     cout << "Digite '0' Para Voltar: ";
     char voltar;
     cin >> voltar;
@@ -467,6 +473,10 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
 
   bool encontrado = false;
   int cont = 0;
+
+  Celular resposta[estoqueReal];
+  int j = 0;
+
   for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].nome.find(nome) != string::npos)
@@ -483,6 +493,16 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
       cout << "Descricao: " << celulares[i].descricao << endl;
 
       encontrado = true;
+
+      resposta[j].identificador = celulares[i].identificador;
+      resposta[j].nome = celulares[i].nome;
+      resposta[j].preco = celulares[i].preco;
+      resposta[j].quantidade = celulares[i].quantidade;
+      resposta[j].fabricante = celulares[i].fabricante;
+      resposta[j].anoCriacao = celulares[i].anoCriacao;
+      resposta[j].descricao = celulares[i].descricao;
+      j++;
+
       cont++;
     }
   }
@@ -499,6 +519,18 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
     cout << "Total de celulares encontrados: " << cont;
     cout << endl
          << "##################################" << endl;
+
+    cout << endl << "Deseja exportar essa lista em um arquivo separado?" << endl;
+    cout << "1 - sim" << endl
+         << "0 - nao" << endl;
+    cout << "Opcao: ";
+    int respostaExportar;
+    cin >> respostaExportar;
+
+    if (respostaExportar == 1)
+    {
+      ExportarParaArquivo(resposta, cont);
+    }
   }
 }
 
@@ -885,27 +917,32 @@ void alterarNome(Celular celulares[], int estoqueReal)
 }
 
 void CadastrarCelular(Celular celulares[], int &estoqueReal)
-
 {
   system(clearCommand.c_str());
 
   cout << "===== Cadastro de um novo SmartPhone =====" << endl;
-
-  cout << "Para cadastrar um novo celular, serao necessarios: o nome, preco, quatidade em estoque, nome do fabricante," << endl
-       << " ano de criacao e uma descricao sobre o produto, deseja continuar?" << endl;
+  cout << "Para cadastrar um novo celular, serao necessarios:" << endl
+       << "·Nome," << endl
+       << "·Preco," << endl
+       << "·Quatidade em estoque," << endl
+       << "·Nome do fabricante," << endl
+       << "·Ano de criacao," << endl
+       << "·Descricao" << endl
+       << endl
+       << "Deseja continuar?" << endl;
 
   int opcao;
   cout << "1 - Sim" << endl;
-  cout << "0 - Nao (Voltar para o Inicio)" << endl;
-  cout<<"Opcao: ";
+  cout << "0 - Voltar para o Inicio" << endl;
+  cout << "Opcao: ";
   cin >> opcao;
   cin.ignore();
   if (opcao == 1)
   {
     estoqueReal += 1;
-    celulares[estoqueReal].identificador=estoqueReal;
+    celulares[estoqueReal].identificador = estoqueReal;
     cout << endl
-         << "Digite o Nome do Produto: ";
+         << "Digite o nome do produto: ";
     getline(cin, celulares[estoqueReal].nome);
     cout
         << "Digite o preco do produto: ";
@@ -914,7 +951,7 @@ void CadastrarCelular(Celular celulares[], int &estoqueReal)
         << "Digite a quantidade em estoque: ";
     cin >> celulares[estoqueReal].quantidade;
     cout
-        << "Digite o Nome do fabricante: ";
+        << "Digite o nome do fabricante: ";
     cin >> celulares[estoqueReal].fabricante;
     cout
         << "Digite o ano de criacao do aparelho: ";
@@ -926,21 +963,19 @@ void CadastrarCelular(Celular celulares[], int &estoqueReal)
 
     system(clearCommand.c_str());
 
-    cout<<"Celular cadastrado com sucesso"<<endl;
-    cout<<"As informacoes do celular cadastrado sao: "<<endl;
-    cout<<"Numero de Identificacao: "<<celulares[estoqueReal].identificador<<endl;
-    cout<<"Nome: "<<celulares[estoqueReal].nome<<endl;    
-    cout<<"Preco: "<<celulares[estoqueReal].preco<<endl;
-    cout<<"Quantidade em estoque: "<<celulares[estoqueReal].quantidade<<endl;
-    cout<<"Fabricante do Aparelho: "<<celulares[estoqueReal].fabricante<<endl;
-    cout<<"Ano de Criacao: "<<celulares[estoqueReal].anoCriacao<<endl;
-    cout<<"Descricao do produto:  "<<celulares[estoqueReal].descricao<<endl;
+    cout << "### Celular cadastrado com sucesso ###" << endl;
+    cout << "Identificacao: " << celulares[estoqueReal].identificador << endl;
+    cout << "Nome: " << celulares[estoqueReal].nome << endl;
+    cout << "Preco: " << celulares[estoqueReal].preco << endl;
+    cout << "Quantidade em estoque: " << celulares[estoqueReal].quantidade << endl;
+    cout << "Fabricante do Aparelho: " << celulares[estoqueReal].fabricante << endl;
+    cout << "Ano de Criacao: " << celulares[estoqueReal].anoCriacao << endl;
+    cout << "Descricao do produto:  " << celulares[estoqueReal].descricao << endl;
 
-    cout << "Digite '0' Para Voltar: ";
+    cout << endl
+         << "Digite '0' Para Voltar: ";
     char voltar;
     cin >> voltar;
-
-
   }
 }
 
@@ -975,7 +1010,7 @@ void exibirMenu()
 
 int main()
 {
-  // Recebendo dados do arquivo celulares.csv e colocando em um vetor separando cada vetor pela determinada linha
+  // Recebendo dados do arquivo celulares.csv e colocando em um vetor registro
   ifstream arquivoIn("celulares.csv");
 
   if (!arquivoIn.is_open())
@@ -1097,7 +1132,7 @@ int main()
           cout << endl
                << "Gostaria de consultar novamente?" << endl;
           cout << "1 - Sim" << endl;
-          cout << "2 - Nao" << endl;
+          cout << "0 - Nao" << endl;
           cout << "Opcao: ";
           cin >> opcaoConsultaNovamente;
         }
@@ -1164,7 +1199,7 @@ int main()
               cout << endl
                    << "Gostaria de consultar novamente?" << endl;
               cout << "1 - Sim" << endl;
-              cout << "2 - Nao" << endl;
+              cout << "0 - Nao" << endl;
               cout << "Opcao: ";
               cin >> opcaoConsultaNovamente;
             }
