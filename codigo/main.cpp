@@ -48,17 +48,21 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo + ".txt");
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
-    for (int i = 0; i < estoqueReal; i++)
+    for (int i = 0; i <= estoqueReal; i++)
     {
-      NomeArqvSaida << celulares[i].identificador << ";";
-      NomeArqvSaida << celulares[i].nome << ";";
-      NomeArqvSaida << celulares[i].preco << ";";
-      NomeArqvSaida << celulares[i].quantidade << ";";
-      NomeArqvSaida << celulares[i].fabricante << ";";
-      NomeArqvSaida << celulares[i].anoCriacao << ";";
-      NomeArqvSaida << celulares[i].descricao;
-      NomeArqvSaida << endl;
+      if (celulares[i].identificador != -1)
+      {
+        NomeArqvSaida << celulares[i].identificador << ";";
+        NomeArqvSaida << celulares[i].nome << ";";
+        NomeArqvSaida << celulares[i].preco << ";";
+        NomeArqvSaida << celulares[i].quantidade << ";";
+        NomeArqvSaida << celulares[i].fabricante << ";";
+        NomeArqvSaida << celulares[i].anoCriacao << ";";
+        NomeArqvSaida << celulares[i].descricao;
+        NomeArqvSaida << endl;
+      }
     }
+
     cout << endl
          << "##################################" << endl;
     cout << "Salvo com sucesso!" << endl
@@ -75,17 +79,22 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo + ".csv");
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
-    for (int i = 0; i < estoqueReal; i++)
+    
+    for (int i = 0; i <= estoqueReal; i++)
     {
-      NomeArqvSaida << celulares[i].identificador << ";";
-      NomeArqvSaida << celulares[i].nome << ";";
-      NomeArqvSaida << celulares[i].preco << ";";
-      NomeArqvSaida << celulares[i].quantidade << ";";
-      NomeArqvSaida << celulares[i].fabricante << ";";
-      NomeArqvSaida << celulares[i].anoCriacao << ";";
-      NomeArqvSaida << celulares[i].descricao;
-      NomeArqvSaida << endl;
+      if (celulares[i].identificador != -1)
+      {
+        NomeArqvSaida << celulares[i].identificador << ";";
+        NomeArqvSaida << celulares[i].nome << ";";
+        NomeArqvSaida << celulares[i].preco << ";";
+        NomeArqvSaida << celulares[i].quantidade << ";";
+        NomeArqvSaida << celulares[i].fabricante << ";";
+        NomeArqvSaida << celulares[i].anoCriacao << ";";
+        NomeArqvSaida << celulares[i].descricao;
+        NomeArqvSaida << endl;
+      }
     }
+
     cout << endl
          << "##################################" << endl;
     cout << "Salvo com sucesso!" << endl
@@ -102,16 +111,19 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo);
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
-    for (int i = 0; i < estoqueReal; i++)
+    for (int i = 0; i <= estoqueReal; i++)
     {
-      NomeArqvSaida << celulares[i].identificador << ";";
-      NomeArqvSaida << celulares[i].nome << ";";
-      NomeArqvSaida << celulares[i].preco << ";";
-      NomeArqvSaida << celulares[i].quantidade << ";";
-      NomeArqvSaida << celulares[i].fabricante << ";";
-      NomeArqvSaida << celulares[i].anoCriacao << ";";
-      NomeArqvSaida << celulares[i].descricao;
-      NomeArqvSaida << endl;
+      if (celulares[i].identificador != -1)
+      {
+        NomeArqvSaida << celulares[i].identificador << ";";
+        NomeArqvSaida << celulares[i].nome << ";";
+        NomeArqvSaida << celulares[i].preco << ";";
+        NomeArqvSaida << celulares[i].quantidade << ";";
+        NomeArqvSaida << celulares[i].fabricante << ";";
+        NomeArqvSaida << celulares[i].anoCriacao << ";";
+        NomeArqvSaida << celulares[i].descricao;
+        NomeArqvSaida << endl;
+      }
     }
     cout << endl
          << "##################################" << endl;
@@ -259,7 +271,7 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
   cin.ignore();
   if (opcao == 1)
   {
-    estoqueReal ++;
+    estoqueReal++;
 
     celulares[estoqueReal].identificador = estoqueReal;
     cout << endl
@@ -819,7 +831,7 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
 
   string nome;
   cout << "Digite o nome do celular: ";
-  getline(cin,nome);
+  getline(cin, nome);
 
   bool encontrado = false;
   int cont = 0;
@@ -1319,7 +1331,7 @@ void removerCelular(Celular celulares[], int &estoqueReal)
     celulares[posicao].identificador = -1;
     int j = 0;
 
-    for (int i = posicao; i < estoqueReal; i++)
+    for (int i = 0; i < estoqueReal; i++)
     {
       if (celulares[i].identificador != -1)
       {
@@ -1333,8 +1345,16 @@ void removerCelular(Celular celulares[], int &estoqueReal)
         j++;
       }
     }
+
     estoqueReal--;
+
     celulares[estoqueReal].identificador = -1;
+    celulares[estoqueReal].nome = "-1";
+    celulares[estoqueReal].preco = -1;
+    celulares[estoqueReal].quantidade = -1;
+    celulares[estoqueReal].fabricante = "-1";
+    celulares[estoqueReal].anoCriacao = -1;
+    celulares[estoqueReal].descricao = "-1";
 
     cout << "##################################" << endl;
     cout << "Removido com sucesso!" << endl
