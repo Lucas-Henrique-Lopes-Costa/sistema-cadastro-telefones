@@ -1280,6 +1280,70 @@ void exibirMenuAlterarCelular()
   cout << "Opcao: ";
 }
 
+void removerCelular(Celular celulares[], int &estoqueReal)
+{
+  system(clearCommand.c_str());
+
+  cout << "===== Remocao de SmartPhone =====" << endl;
+  cout << "Digite o identificador do SmartPhone que deseja remover: ";
+
+  int posicao;
+  cin >> posicao;
+  posicao--;
+
+  system(clearCommand.c_str());
+
+  cout << "O celular que sera removido e: " << endl;
+  cout << "Identificacao: " << celulares[posicao].identificador << endl;
+  cout << "Nome: " << celulares[posicao].nome << endl;
+  cout << "Preco: " << celulares[posicao].preco << endl;
+  cout << "Quantidade em estoque: " << celulares[posicao].quantidade << endl;
+  cout << "Fabricante do Aparelho: " << celulares[posicao].fabricante << endl;
+  cout << "Ano de Criacao: " << celulares[posicao].anoCriacao << endl;
+  cout << "Descricao do produto:  " << celulares[posicao].descricao << endl;
+
+  cout << endl
+       << "Deseja realmente remover esse celular?" << endl;
+  int opcao;
+  cout << "1 - Sim" << endl;
+  cout << "0 - Voltar para o Inicio" << endl;
+  cout << "Opcao: ";
+  cin >> opcao;
+  cin.ignore();
+
+  if (opcao == 1)
+  {
+    system(clearCommand.c_str());
+
+    celulares[posicao].identificador = -1;
+
+    ofstream NomeArqvSaida("celulares.csv");
+    NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
+    for (int i = 0; i < estoqueReal; i++)
+    {
+      if (celulares[i].identificador > -1)
+      {
+        NomeArqvSaida << celulares[i].identificador << ";";
+        NomeArqvSaida << celulares[i].nome << ";";
+        NomeArqvSaida << celulares[i].preco << ";";
+        NomeArqvSaida << celulares[i].quantidade << ";";
+        NomeArqvSaida << celulares[i].fabricante << ";";
+        NomeArqvSaida << celulares[i].anoCriacao << ";";
+        NomeArqvSaida << celulares[i].descricao;
+        NomeArqvSaida << endl;
+      }
+
+    }
+
+    cout << "##################################" << endl;
+    cout << "Removido com sucesso!" << endl
+         << "##################################" << endl;
+    cout << "Digite '0' Para Voltar ou Sair: ";
+    char voltar;
+    cin >> voltar;
+  }
+}
+
 void confirmarSaida(Celular celulares[], int &estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1298,7 +1362,7 @@ void confirmarSaida(Celular celulares[], int &estoqueReal)
     cout << endl
          << "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" << endl;
     cout << "Obrigado por utilizar o sistema!" << endl
-          << "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" << endl;
+         << "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" << endl;
     exit(0);
   }
   else
@@ -1307,7 +1371,7 @@ void confirmarSaida(Celular celulares[], int &estoqueReal)
     cout << endl
          << "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" << endl;
     cout << "Obrigado por utilizar o sistema!" << endl
-          << "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" << endl;
+         << "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" << endl;
     exit(0);
   }
 }
@@ -1400,7 +1464,7 @@ int main()
     switch (opcao)
     {
     case 1:
-    { // 🆗 Cadastrar Celular
+    { // Cadastrar Celular
       do
       {
         cadastrarCelular(celulares, estoqueReal);
@@ -1410,10 +1474,15 @@ int main()
     }
     case 2:
     { // Remover Celular
+      do
+      {
+        removerCelular(celulares, estoqueReal);
+      } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
+
       break;
     }
     case 3:
-    { // 🆗 Busca Celular
+    { // Busca Celular
       do
       {
         exibirMenuBuscarCelular();
@@ -1459,7 +1528,7 @@ int main()
       break;
     }
     case 4:
-    { // 🆗 Alterar Celular
+    { // Alterar Celular
       do
       {
         exibirMenuAlterarCelular();
@@ -1533,22 +1602,21 @@ int main()
       break;
     }
     case 5:
-    { // 🆗 Exportar para CSV
+    { // Exportar para CSV
       do
       {
         exportarParaArquivo(celulares, estoqueReal);
-
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
 
       break;
     }
     case 6:
-    { // 🆗 Importar de CSV
+    { // Importar de CSV
       importarDeArquivo(celulares, estoqueReal);
       break;
     }
     case 0:
-    { // 🆗 Sair
+    { // Sair
       confirmarSaida(celulares, estoqueReal);
       break;
     }
