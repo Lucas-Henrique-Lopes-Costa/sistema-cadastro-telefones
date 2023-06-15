@@ -1465,7 +1465,7 @@ int main()
     switch (opcao)
     {
     case 1:
-    { // 🆗 Cadastrar Celular
+    { // Cadastrar Celular
       do
       {
         cadastrarCelular(celulares, estoqueReal);
@@ -1483,11 +1483,12 @@ int main()
       break;
     }
     case 3:
-    { // 🆗 Busca Celular
+    { // Busca Celular
       do
       {
         exibirMenuBuscarCelular();
         cin >> opcaoBuscarCelular;
+        cin.ignore();
 
         switch (opcaoBuscarCelular)
         {
@@ -1529,7 +1530,7 @@ int main()
       break;
     }
     case 4:
-    { // 🆗 Alterar Celular
+    { // Alterar Celular
       do
       {
         exibirMenuAlterarCelular();
@@ -1603,7 +1604,7 @@ int main()
       break;
     }
     case 5:
-    { // 🆗 Exportar para CSV
+    { // Exportar para CSV
       do
       {
         exportarParaArquivo(celulares, estoqueReal);
@@ -1613,12 +1614,12 @@ int main()
       break;
     }
     case 6:
-    { // 🆗 Importar de CSV
+    { // Importar de CSV
       importarDeArquivo(celulares, estoqueReal);
       break;
     }
     case 0:
-    { // 🆗 Sair
+    { // Sair
       confirmarSaida(celulares, estoqueReal);
       break;
     }
