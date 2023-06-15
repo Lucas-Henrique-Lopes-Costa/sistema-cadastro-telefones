@@ -1442,7 +1442,7 @@ int main()
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
   // utilizando struct para armazenar os dados do arquivo
-  const int estoqueMax = 100;
+  const int estoqueMax = 500;
   Celular celulares[estoqueMax];
   int estoqueReal = 0;
 
