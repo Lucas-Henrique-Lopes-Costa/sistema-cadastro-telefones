@@ -1674,7 +1674,6 @@ int main()
     }
     cout << endl;
     exibirMenu();
-
   } while (opcao != 7);
 
   return 0;
