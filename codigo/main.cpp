@@ -242,12 +242,12 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
 
   cout << "===== Cadastro de um novo SmartPhone =====" << endl;
   cout << "Para cadastrar um novo celular, serao necessarios:" << endl
-       << "·Nome," << endl
-       << "·Preco," << endl
-       << "·Quatidade em estoque," << endl
-       << "·Nome do fabricante," << endl
-       << "·Ano de criacao," << endl
-       << "·Descricao" << endl
+       << "Nome" << endl
+       << "Preco" << endl
+       << "Quatidade em estoque" << endl
+       << "Nome do fabricante" << endl
+       << "Ano de criacao" << endl
+       << "Descricao" << endl
        << endl
        << "Deseja continuar?" << endl;
 
@@ -259,7 +259,8 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
   cin.ignore();
   if (opcao == 1)
   {
-    estoqueReal += 1;
+    estoqueReal ++;
+
     celulares[estoqueReal].identificador = estoqueReal;
     cout << endl
          << "Digite o nome do produto: ";
@@ -290,7 +291,7 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
     cout << "Quantidade em estoque: " << celulares[estoqueReal].quantidade << endl;
     cout << "Fabricante do Aparelho: " << celulares[estoqueReal].fabricante << endl;
     cout << "Ano de Criacao: " << celulares[estoqueReal].anoCriacao << endl;
-    cout << "Descricao do produto:  " << celulares[estoqueReal].descricao << endl;
+    cout << "Descricao do produto: " << celulares[estoqueReal].descricao << endl;
 
     cout << endl
          << "Digite '0' Para Voltar: ";
@@ -818,7 +819,7 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
 
   string nome;
   cout << "Digite o nome do celular: ";
-  cin >> nome;
+  getline(cin,nome);
 
   bool encontrado = false;
   int cont = 0;
@@ -1318,9 +1319,9 @@ void removerCelular(Celular celulares[], int &estoqueReal)
     celulares[posicao].identificador = -1;
     int j = 0;
 
-    for (int i = 0; i < estoqueReal; i++)
+    for (int i = posicao; i < estoqueReal; i++)
     {
-      if (celulares[i].identificador > -1)
+      if (celulares[i].identificador != -1)
       {
         celulares[j].identificador = celulares[i].identificador;
         celulares[j].nome = celulares[i].nome;
@@ -1332,8 +1333,8 @@ void removerCelular(Celular celulares[], int &estoqueReal)
         j++;
       }
     }
-
-    estoqueReal = j;
+    estoqueReal--;
+    celulares[estoqueReal].identificador = -1;
 
     cout << "##################################" << endl;
     cout << "Removido com sucesso!" << endl
@@ -1464,7 +1465,7 @@ int main()
     switch (opcao)
     {
     case 1:
-    { // Cadastrar Celular
+    { // 🆗 Cadastrar Celular
       do
       {
         cadastrarCelular(celulares, estoqueReal);
@@ -1482,7 +1483,7 @@ int main()
       break;
     }
     case 3:
-    { // Busca Celular
+    { // 🆗 Busca Celular
       do
       {
         exibirMenuBuscarCelular();
@@ -1528,7 +1529,7 @@ int main()
       break;
     }
     case 4:
-    { // Alterar Celular
+    { // 🆗 Alterar Celular
       do
       {
         exibirMenuAlterarCelular();
@@ -1602,21 +1603,22 @@ int main()
       break;
     }
     case 5:
-    { // Exportar para CSV
+    { // 🆗 Exportar para CSV
       do
       {
         exportarParaArquivo(celulares, estoqueReal);
+
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
 
       break;
     }
     case 6:
-    { // Importar de CSV
+    { // 🆗 Importar de CSV
       importarDeArquivo(celulares, estoqueReal);
       break;
     }
     case 0:
-    { // Sair
+    { // 🆗 Sair
       confirmarSaida(celulares, estoqueReal);
       break;
     }
