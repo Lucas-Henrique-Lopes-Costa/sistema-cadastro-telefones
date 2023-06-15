@@ -1316,24 +1316,24 @@ void removerCelular(Celular celulares[], int &estoqueReal)
     system(clearCommand.c_str());
 
     celulares[posicao].identificador = -1;
+    int j = 0;
 
-    ofstream NomeArqvSaida("celulares.csv");
-    NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
     for (int i = 0; i < estoqueReal; i++)
     {
       if (celulares[i].identificador > -1)
       {
-        NomeArqvSaida << celulares[i].identificador << ";";
-        NomeArqvSaida << celulares[i].nome << ";";
-        NomeArqvSaida << celulares[i].preco << ";";
-        NomeArqvSaida << celulares[i].quantidade << ";";
-        NomeArqvSaida << celulares[i].fabricante << ";";
-        NomeArqvSaida << celulares[i].anoCriacao << ";";
-        NomeArqvSaida << celulares[i].descricao;
-        NomeArqvSaida << endl;
+        celulares[j].identificador = celulares[i].identificador;
+        celulares[j].nome = celulares[i].nome;
+        celulares[j].preco = celulares[i].preco;
+        celulares[j].quantidade = celulares[i].quantidade;
+        celulares[j].fabricante = celulares[i].fabricante;
+        celulares[j].anoCriacao = celulares[i].anoCriacao;
+        celulares[j].descricao = celulares[i].descricao;
+        j++;
       }
-
     }
+
+    estoqueReal = j;
 
     cout << "##################################" << endl;
     cout << "Removido com sucesso!" << endl
