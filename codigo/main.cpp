@@ -151,7 +151,7 @@ void importarDeArquivo(Celular celulares[], int &estoqueReal)
   system(clearCommand.c_str());
 
   cout << "===== Importar de arquivos =====" << endl;
-  cout << "Escreva o nome do arquivo '.csv' para ser exportado" << endl;
+  cout << "Escreva o nome do arquivo '.csv' para ser importado" << endl;
   cout << "Nome do arquivo: ";
   string nomeArquivo;
   cin >> nomeArquivo;
@@ -278,6 +278,8 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
   cin.ignore();
   if (opcao == 1)
   {
+    system(clearCommand.c_str());
+
     estoqueReal++;
 
     celulares[estoqueReal].identificador = estoqueReal;
