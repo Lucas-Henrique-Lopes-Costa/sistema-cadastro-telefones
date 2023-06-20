@@ -58,7 +58,6 @@ Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do prod
 57;LG G9 ThinQ;899.99;5;LG;2022;O LG G9 ThinQ e um smartphone com camera tripla de 64MP, tela OLED de 6,5 polegadas, processador Snapdragon 898 e tecnologia de reconhecimento de gestos.
 58;Nokia X30;699.99;20;Nokia;2022;O Nokia X30 e um smartphone com camera quádrupla de 108MP, tela IPS LCD de 6,7 polegadas, processador Qualcomm Snapdragon 888 e Android puro.
 59;Huawei P50 Pro;1299.99;15;Huawei;2022;O Huawei P50 Pro e um smartphone premium com camera quádrupla de 50MP, tela OLED de 6,6 polegadas, processador Kirin 9000 e suporte para carregamento sem fio.
-60;iPhone 8;849.99;25;Apple;2017;O iPhone 8 trouxe melhorias na câmera e no desempenho, com uma câmera de 12MP, processador A11 Bionic e sistema operacional iOS.
 61;Xiaomi Redmi Note 9;229.99;25;Xiaomi;2020;O Xiaomi Redmi Note 9 e um smartphone de entrada com camera quádrupla de 48MP, tela IPS LCD de 6,53 polegadas, processador MediaTek Helio G85 e bateria de longa duracao.
 62;Motorola Moto G Stylus;299.99;20;Motorola;2021;O Motorola Moto G Stylus e um smartphone com caneta stylus integrada, camera quádrupla de 48MP, tela LCD de 6,8 polegadas e processador Snapdragon 678.
 63;OnePlus 8T;699.99;10;OnePlus;2020;O OnePlus 8T e um smartphone com camera quádrupla de 48MP, tela Fluid AMOLED de 6,55 polegadas, processador Snapdragon 865 e suporte para 5G.
@@ -68,34 +67,32 @@ Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do prod
 67;Nokia 8.3;499.99;20;Nokia;2020;O Nokia 8.3 e um smartphone com camera quádrupla de 64MP, tela IPS LCD de 6,81 polegadas, processador Qualcomm Snapdragon 765G e Android puro.
 68;Huawei Nova 7;599.99;15;Huawei;2020;O Huawei Nova 7 e um smartphone com camera quádrupla de 64MP, tela OLED de 6,53 polegadas, processador Kirin 985 e suporte para 5G.
 69;Samsung Galaxy S;599.99;10;Samsung;2010;O Samsung Galaxy S foi um dos primeiros smartphones com tela Super AMOLED de 4 polegadas, camera de 5MP, processador Hummingbird e sistema operacional Android.
-70;iPhone 4;699.99;15;Apple;2010;O iPhone 4 foi um marco na linha de smartphones da Apple, apresentando um design elegante com vidro na frente e atrás, tela Retina de 3,5 polegadas, camera de 5MP e processador A4.
+70;iPhone 4;699.99;15;Apple;2010;O iPhone 4 foi um marco na linha de smartphones da Apple, apresentando um design elegante com vidro na frente e atr�s, tela Retina de 3,5 polegadas, camera de 5MP e processador A4.
 71;Motorola Droid X;399.99;20;Motorola;2010;O Motorola Droid X foi um smartphone popular com tela TFT de 4,3 polegadas, camera de 8MP, processador TI OMAP e sistema operacional Android.
 72;HTC Evo 4G;499.99;10;HTC;2010;O HTC Evo 4G foi um dos primeiros smartphones com suporte para rede 4G, tela TFT de 4,3 polegadas, camera de 8MP, processador Snapdragon e sistema operacional Android.
 73;Nokia N8;299.99;25;Nokia;2010;O Nokia N8 foi um smartphone com camera de 12MP, tela AMOLED de 3,5 polegadas, processador ARM 11 e sistema operacional Symbian^3.
-74;BlackBerry Torch 9800;399.99;15;BlackBerry;2010;O BlackBerry Torch 9800 combinou um teclado físico deslizante com uma tela sensível ao toque, camera de 5MP, processador Qualcomm Snapdragon e sistema operacional BlackBerry OS 6.
+74;BlackBerry Torch 9800;399.99;15;BlackBerry;2010;O BlackBerry Torch 9800 combinou um teclado f�sico deslizante com uma tela sens�vel ao toque, camera de 5MP, processador Qualcomm Snapdragon e sistema operacional BlackBerry OS 6.
 75;Sony Ericsson Xperia X10;249.99;20;Sony;2010;O Sony Ericsson Xperia X10 apresentou uma tela TFT de 4 polegadas, camera de 8MP, processador Qualcomm Snapdragon e sistema operacional Android.
 76;LG Optimus 7;199.99;30;LG;2010;O LG Optimus 7 foi um smartphone com tela TFT de 3,8 polegadas, camera de 5MP, processador Qualcomm Snapdragon e sistema operacional Windows Phone 7.
 77;HTC Desire;299.99;25;HTC;2010;O HTC Desire foi um smartphone com tela AMOLED de 3,7 polegadas, camera de 5MP, processador Qualcomm Snapdragon e sistema operacional Android.
 78;Samsung Wave S8500;199.99;30;Samsung;2010;O Samsung Wave S8500 foi um smartphone com tela Super AMOLED de 3,3 polegadas, camera de 5MP, processador Samsung S5PC110 e sistema operacional Bada.
-79;Samsung Galaxy S6;699.99;30;Samsung;2015;O Samsung Galaxy S6 foi um smartphone premium com tela Super AMOLED de 5,1 polegadas, camera de 16MP, processador Exynos 7420 e sistema operacional Android.
-80;iPhone 6s;799.99;25;Apple;2015;O iPhone 6s trouxe recursos inovadores, como o 3D Touch, tela Retina HD de 4,7 polegadas, camera de 12MP, processador A9 e sistema operacional iOS.
-81;Motorola Moto X Style;449.99;20;Motorola;2015;O Motorola Moto X Style ofereceu uma tela LCD de 5,7 polegadas, camera de 21MP, processador Snapdragon 808 e sistema operacional Android.
-82;HTC One M9;599.99;15;HTC;2015;O HTC One M9 continuou a linha de design elegante da HTC, com uma tela Super LCD de 5 polegadas, camera de 20MP, processador Snapdragon 810 e sistema operacional Android.
-83;Nokia Lumia 950;349.99;10;Nokia;2015;O Nokia Lumia 950 foi um smartphone com tela AMOLED de 5,2 polegadas, camera de 20MP, processador Snapdragon 808 e sistema operacional Windows 10 Mobile.
-84;LG G4;499.99;15;LG;2015;O LG G4 apresentou uma tela IPS LCD de 5,5 polegadas, camera de 16MP, processador Snapdragon 808 e sistema operacional Android.
-85;Sony Xperia Z5;599.99;10;Sony;2015;O Sony Xperia Z5 foi um smartphone resistente à água com uma tela IPS LCD de 5,2 polegadas, camera de 23MP, processador Snapdragon 810 e sistema operacional Android.
-86;BlackBerry Priv;699.99;5;BlackBerry;2015;O BlackBerry Priv trouxe o teclado físico deslizante de volta, junto com uma tela AMOLED de 5,4 polegadas, camera de 18MP, processador Snapdragon 808 e sistema operacional Android.
-87;Xiaomi Mi 5;349.99;20;Xiaomi;2015;O Xiaomi Mi 5 foi um smartphone com tela IPS LCD de 5,15 polegadas, camera de 16MP, processador Snapdragon 820 e sistema operacional Android.
-88;Huawei P8;399.99;15;Huawei;2015;O Huawei P8 apresentou uma tela IPS-NEO LCD de 5,2 polegadas, camera de 13MP, processador Kirin 930 e sistema operacional Android.
-89;Samsung Galaxy S7;699.99;30;Samsung;2016;O Samsung Galaxy S7 foi um smartphone premium com tela Super AMOLED de 5,1 polegadas, câmera de 12MP, processador Exynos 8890 e sistema operacional Android.
-90;iPhone 7;799.99;25;Apple;2016;O iPhone 7 trouxe melhorias significativas, incluindo resistência à água, câmera de 12MP, processador A10 Fusion e sistema operacional iOS.
-91;Motorola Moto Z;499.99;20;Motorola;2016;O Motorola Moto Z foi um smartphone modular com tela AMOLED de 5,5 polegadas, câmera de 13MP, processador Snapdragon 820 e sistema operacional Android.
-92;HTC 10;599.99;15;HTC;2016;O HTC 10 apresentou uma tela Super LCD de 5,2 polegadas, câmera de 12MP, processador Snapdragon 820 e sistema operacional Android.
-93;Nokia Lumia 950 XL;449.99;10;Nokia;2016;O Nokia Lumia 950 XL foi um smartphone com tela AMOLED de 5,7 polegadas, câmera de 20MP, processador Snapdragon 810 e sistema operacional Windows 10 Mobile.
-94;LG G5;499.99;15;LG;2016;O LG G5 trouxe um design modular inovador, juntamente com uma tela IPS LCD de 5,3 polegadas, câmera de 16MP, processador Snapdragon 820 e sistema operacional Android.
-95;Sony Xperia XZ;599.99;10;Sony;2016;O Sony Xperia XZ foi um smartphone com tela IPS LCD de 5,2 polegadas, câmera de 23MP, processador Snapdragon 820 e sistema operacional Android.
-96;Google Pixel;649.99;5;Google;2016;O Google Pixel marcou o início da linha de smartphones Pixel da Google, com uma tela AMOLED de 5 polegadas, câmera de 12,3MP, processador Snapdragon 821 e integração aprimorada com os serviços do Google.
-97;Xiaomi Mi Mix;699.99;20;Xiaomi;2016;O Xiaomi Mi Mix foi um smartphone revolucionário com uma tela sem bordas de 6,4 polegadas, câmera de 16MP, processador Snapdragon 821 e sistema operacional Android.
-98;Huawei P9;499.99;15;Huawei;2016;O Huawei P9 apresentou uma tela IPS-NEO LCD de 5,2 polegadas, câmera dupla de 12MP, processador Kirin 955 e sistema operacional Android.
-99;Motorola Moto G5 Plus;299.99;20;Motorola;2017;O Motorola Moto G5 Plus foi um smartphone de médio porte com tela IPS LCD de 5,2 polegadas, câmera de 12MP, processador Snapdragon 625 e sistema operacional Android.
-100;Google Pixel 2;649.99;10;Google;2017;O Google Pixel 2 trouxe melhorias na câmera e integração aprimorada com os serviços do Google, com uma tela AMOLED de 5 polegadas, câmera de 12,2MP, processador Snapdragon 835 e sistema operacional Android.
+80;Samsung Galaxy S6;699.99;30;Samsung;2015;O Samsung Galaxy S6 foi um smartphone premium com tela Super AMOLED de 5,1 polegadas, camera de 16MP, processador Exynos 7420 e sistema operacional Android.
+81;iPhone 6s;799.99;25;Apple;2015;O iPhone 6s trouxe recursos inovadores, como o 3D Touch, tela Retina HD de 4,7 polegadas, camera de 12MP, processador A9 e sistema operacional iOS.
+82;Motorola Moto X Style;449.99;20;Motorola;2015;O Motorola Moto X Style ofereceu uma tela LCD de 5,7 polegadas, camera de 21MP, processador Snapdragon 808 e sistema operacional Android.
+83;HTC One M9;599.99;15;HTC;2015;O HTC One M9 continuou a linha de design elegante da HTC, com uma tela Super LCD de 5 polegadas, camera de 20MP, processador Snapdragon 810 e sistema operacional Android.
+84;Nokia Lumia 950;349.99;10;Nokia;2015;O Nokia Lumia 950 foi um smartphone com tela AMOLED de 5,2 polegadas, camera de 20MP, processador Snapdragon 808 e sistema operacional Windows 10 Mobile.
+85;LG G4;499.99;15;LG;2015;O LG G4 apresentou uma tela IPS LCD de 5,5 polegadas, camera de 16MP, processador Snapdragon 808 e sistema operacional Android.
+86;Sony Xperia Z5;599.99;10;Sony;2015;O Sony Xperia Z5 foi um smartphone resistente � �gua com uma tela IPS LCD de 5,2 polegadas, camera de 23MP, processador Snapdragon 810 e sistema operacional Android.
+87;BlackBerry Priv;699.99;5;BlackBerry;2015;O BlackBerry Priv trouxe o teclado f�sico deslizante de volta, junto com uma tela AMOLED de 5,4 polegadas, camera de 18MP, processador Snapdragon 808 e sistema operacional Android.
+88;Xiaomi Mi 5;349.99;20;Xiaomi;2015;O Xiaomi Mi 5 foi um smartphone com tela IPS LCD de 5,15 polegadas, camera de 16MP, processador Snapdragon 820 e sistema operacional Android.
+89;Huawei P8;399.99;15;Huawei;2015;O Huawei P8 apresentou uma tela IPS-NEO LCD de 5,2 polegadas, camera de 13MP, processador Kirin 930 e sistema operacional Android.
+90;Samsung Galaxy S7;699.99;30;Samsung;2016;O Samsung Galaxy S7 foi um smartphone premium com tela Super AMOLED de 5,1 polegadas, c�mera de 12MP, processador Exynos 8890 e sistema operacional Android.
+91;iPhone 7;799.99;25;Apple;2016;O iPhone 7 trouxe melhorias significativas, incluindo resist�ncia � �gua, c�mera de 12MP, processador A10 Fusion e sistema operacional iOS.
+92;Motorola Moto Z;499.99;20;Motorola;2016;O Motorola Moto Z foi um smartphone modular com tela AMOLED de 5,5 polegadas, c�mera de 13MP, processador Snapdragon 820 e sistema operacional Android.
+93;HTC 10;599.99;15;HTC;2016;O HTC 10 apresentou uma tela Super LCD de 5,2 polegadas, c�mera de 12MP, processador Snapdragon 820 e sistema operacional Android.
+94;Nokia Lumia 950 XL;449.99;10;Nokia;2016;O Nokia Lumia 950 XL foi um smartphone com tela AMOLED de 5,7 polegadas, c�mera de 20MP, processador Snapdragon 810 e sistema operacional Windows 10 Mobile.
+95;LG G5;499.99;15;LG;2016;O LG G5 trouxe um design modular inovador, juntamente com uma tela IPS LCD de 5,3 polegadas, c�mera de 16MP, processador Snapdragon 820 e sistema operacional Android.
+96;Sony Xperia XZ;599.99;10;Sony;2016;O Sony Xperia XZ foi um smartphone com tela IPS LCD de 5,2 polegadas, c�mera de 23MP, processador Snapdragon 820 e sistema operacional Android.
+97;Google Pixel;649.99;5;Google;2016;O Google Pixel marcou o in�cio da linha de smartphones Pixel da Google, com uma tela AMOLED de 5 polegadas, c�mera de 12,3MP, processador Snapdragon 821 e integra��o aprimorada com os servi�os do Google.
+98;Xiaomi Mi Mix;699.99;20;Xiaomi;2016;O Xiaomi Mi Mix foi um smartphone revolucion�rio com uma tela sem bordas de 6,4 polegadas, c�mera de 16MP, processador Snapdragon 821 e sistema operacional Android.
+99;Huawei P9;499.99;15;Huawei;2016;O Huawei P9 apresentou uma tela IPS-NEO LCD de 5,2 polegadas, c�mera dupla de 12MP, processador Kirin 955 e sistema operacional Android.
