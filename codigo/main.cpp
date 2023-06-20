@@ -777,7 +777,7 @@ void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
   {
     if (celulares[i].preco >= precoMin && celulares[i].preco <= precoMax)
     {
-      cout << "=== Filtro de : " << precoMin << " até " << precoMax << " dolares ===" << endl;
+      cout << "=== Filtro de : " << precoMin << " ate " << precoMax << " dolares ===" << endl;
       cout << endl
            << "===== Celular Encontrado =====" << endl;
 
