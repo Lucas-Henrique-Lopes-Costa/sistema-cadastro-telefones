@@ -44,11 +44,11 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
   {
     string nomeArquivo;
     cout << endl
-         << "Digite o nome desejado para o arquivo (sem .txt): ";
+         << "Digite o nome desejado para o arquivo sem espacos (sem .txt): ";
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo + ".txt");
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
-    for (int i = 0; i <= estoqueReal; i++)
+    for (int i = 0; i < estoqueReal; i++)
     {
       if (celulares[i].identificador != -1)
       {
@@ -75,12 +75,12 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
   case '1':
   {
     string nomeArquivo;
-    cout << "Digite o nome desejado para o arquivo (sem .csv - nome padrao e 'celulares'): ";
+    cout << "Digite o nome desejado para o arquivo sem espacos (sem .csv - nome padrao e 'celulares'): ";
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo + ".csv");
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
 
-    for (int i = 0; i <= estoqueReal; i++)
+    for (int i = 0; i < estoqueReal; i++)
     {
       if (celulares[i].identificador != -1)
       {
@@ -107,11 +107,11 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
   case '3':
   {
     string nomeArquivo;
-    cout << "Digite o nome desejado para o arquivo, com o tipo (novosCelulares.xls): ";
+    cout << "Digite o nome desejado para o arquivo sem espacos, com o tipo (novosCelulares.xls): ";
     cin >> nomeArquivo;
     ofstream NomeArqvSaida(nomeArquivo);
     NomeArqvSaida << "Indentificador;Nome;Preco;Quantidade;Fabricante;Ano de criacao;Descricao do produto" << endl;
-    for (int i = 0; i <= estoqueReal; i++)
+    for (int i = 0; i < estoqueReal; i++)
     {
       if (celulares[i].identificador != -1)
       {
