@@ -1313,7 +1313,7 @@ void removerCelular(Celular celulares[], int &estoqueReal)
   cin >> identificador;
 
   int posicao;
-  for (int i = 0; i < estoqueReal; i++)
+  for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].identificador == identificador)
     {
