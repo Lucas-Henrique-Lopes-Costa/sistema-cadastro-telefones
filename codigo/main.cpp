@@ -1457,11 +1457,11 @@ int main()
   string linha;
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
-  // utilizando struct para armazenar os dados do arquivo
-  const int estoqueMax = 500;
-  Celular celulares[estoqueMax];
-  int estoqueReal = 0;
+  // utilizando struct com ponteiro para armazenar os dados do arquivo
+  Celular *celulares;
+  celulares = new Celular[100];
 
+  int estoqueReal = 0;
   bool continuar = true;
   while (continuar)
   {
@@ -1573,7 +1573,6 @@ int main()
 
         if (opcaoBuscarCelular != 0)
         {
-          system(clearCommand.c_str());
           cout << endl
                << "Gostaria de buscar novamente?" << endl;
           cout << "1 - Sim" << endl;
@@ -1643,7 +1642,6 @@ int main()
 
             if (opcaoBuscarCelular != 0)
             {
-              system(clearCommand.c_str());
               cout << endl
                    << "Gostaria de buscar novamente?" << endl;
               cout << "1 - Sim" << endl;
