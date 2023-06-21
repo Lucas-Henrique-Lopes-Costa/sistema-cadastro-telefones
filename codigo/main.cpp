@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <algorithm>
 using namespace std;
 
 // encontrando o sistema operacional
@@ -1313,68 +1314,83 @@ void removerCelular(Celular celulares[], int estoqueReal)
   cin >> identificador;
 
   int posicao;
+  int contPosicao = 0;
   for (int i = 0; i <= estoqueReal; i++)
   {
     if (celulares[i].identificador == identificador)
     {
       posicao = i;
+      contPosicao++;
     }
   }
 
-  system(clearCommand.c_str());
+  if (contPosicao == 1)
+  {
+    cout << "O celular que sera removido e: " << endl;
+    cout << "Identificacao: " << celulares[posicao].identificador << endl;
+    cout << "Nome: " << celulares[posicao].nome << endl;
+    cout << "Preco: " << celulares[posicao].preco << endl;
+    cout << "Quantidade em estoque: " << celulares[posicao].quantidade << endl;
+    cout << "Fabricante do Aparelho: " << celulares[posicao].fabricante << endl;
+    cout << "Ano de Criacao: " << celulares[posicao].anoCriacao << endl;
+    cout << "Descricao do produto:  " << celulares[posicao].descricao << endl;
 
-  cout << "O celular que sera removido e: " << endl;
-  cout << "Identificacao: " << celulares[posicao].identificador << endl;
-  cout << "Nome: " << celulares[posicao].nome << endl;
-  cout << "Preco: " << celulares[posicao].preco << endl;
-  cout << "Quantidade em estoque: " << celulares[posicao].quantidade << endl;
-  cout << "Fabricante do Aparelho: " << celulares[posicao].fabricante << endl;
-  cout << "Ano de Criacao: " << celulares[posicao].anoCriacao << endl;
-  cout << "Descricao do produto:  " << celulares[posicao].descricao << endl;
+    cout << endl
+         << "Deseja realmente remover esse celular?" << endl;
+    int opcao;
+    cout << "1 - Sim" << endl;
+    cout << "0 - Voltar para o Inicio" << endl;
+    cout << "Opcao: ";
+    cin >> opcao;
+    cin.ignore();
 
-  cout << endl
-       << "Deseja realmente remover esse celular?" << endl;
-  int opcao;
-  cout << "1 - Sim" << endl;
-  cout << "0 - Voltar para o Inicio" << endl;
-  cout << "Opcao: ";
-  cin >> opcao;
-  cin.ignore();
+    if (opcao == 1)
+    {
+      system(clearCommand.c_str());
 
-  if (opcao == 1)
+      celulares[posicao].identificador = -1;
+      int j = 0;
+
+      for (int i = 0; i <= estoqueReal; i++)
+      {
+        if (celulares[i].identificador != -1)
+        {
+          celulares[j].identificador = celulares[i].identificador;
+          celulares[j].nome = celulares[i].nome;
+          celulares[j].preco = celulares[i].preco;
+          celulares[j].quantidade = celulares[i].quantidade;
+          celulares[j].fabricante = celulares[i].fabricante;
+          celulares[j].anoCriacao = celulares[i].anoCriacao;
+          celulares[j].descricao = celulares[i].descricao;
+          j++;
+        }
+      }
+
+      celulares[estoqueReal].identificador = -1;
+      celulares[estoqueReal].nome = "-1";
+      celulares[estoqueReal].preco = -1;
+      celulares[estoqueReal].quantidade = -1;
+      celulares[estoqueReal].fabricante = "-1";
+      celulares[estoqueReal].anoCriacao = -1;
+      celulares[estoqueReal].descricao = "-1";
+
+      cout << "##################################" << endl;
+      cout << "Removido com sucesso!" << endl;
+      cout << "##################################" << endl;
+      cout << "Digite '0' Para Voltar: ";
+      char voltar;
+      cin >> voltar;
+    }
+    system(clearCommand.c_str());
+  }
+  else
   {
     system(clearCommand.c_str());
 
-    celulares[posicao].identificador = -1;
-    int j = 0;
-
-    for (int i = 0; i <= estoqueReal; i++)
-    {
-      if (celulares[i].identificador != -1)
-      {
-        celulares[j].identificador = celulares[i].identificador;
-        celulares[j].nome = celulares[i].nome;
-        celulares[j].preco = celulares[i].preco;
-        celulares[j].quantidade = celulares[i].quantidade;
-        celulares[j].fabricante = celulares[i].fabricante;
-        celulares[j].anoCriacao = celulares[i].anoCriacao;
-        celulares[j].descricao = celulares[i].descricao;
-        j++;
-      }
-    }
-
-    celulares[estoqueReal].identificador = -1;
-    celulares[estoqueReal].nome = "-1";
-    celulares[estoqueReal].preco = -1;
-    celulares[estoqueReal].quantidade = -1;
-    celulares[estoqueReal].fabricante = "-1";
-    celulares[estoqueReal].anoCriacao = -1;
-    celulares[estoqueReal].descricao = "-1";
-
     cout << "##################################" << endl;
-    cout << "Removido com sucesso!" << endl
-         << "##################################" << endl;
-    cout << "Digite '0' Para Voltar ou Sair: ";
+    cout << "IDENTIFICADOR NAO ENCONTRADO!" << endl;
+    cout << "##################################" << endl;
+    cout << "Digite '0' Para Voltar: ";
     char voltar;
     cin >> voltar;
   }
