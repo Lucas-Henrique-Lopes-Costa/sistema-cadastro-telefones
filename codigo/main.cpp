@@ -152,7 +152,7 @@ void importarDeArquivo(Celular celulares[], int &estoqueReal)
   system(clearCommand.c_str());
 
   cout << "===== Importar de arquivos =====" << endl;
-  cout << "Escreva o nome do arquivo '.csv' para ser importado" << endl;
+  cout << "Escreva o nome do arquivo (sem .csv) para ser importado" << endl;
   cout << "Nome do arquivo: ";
   string nomeArquivo;
   cin >> nomeArquivo;
@@ -1458,8 +1458,9 @@ int main()
   getline(arquivoIn, linha); // dicartando a primeira linha do arquivo
 
   // utilizando struct com ponteiro para armazenar os dados do arquivo
+  int estoqueMax = 100;
   Celular *celulares;
-  celulares = new Celular[100];
+  celulares = new Celular[estoqueMax];
 
   int estoqueReal = 0;
   bool continuar = true;
@@ -1519,6 +1520,15 @@ int main()
     { // Cadastrar Celular
       do
       {
+        if (estoqueMax - estoqueReal <= 50)
+        {
+          Celular *aux;
+          aux = new Celular[estoqueReal + 100];
+          copy(celulares, celulares + estoqueReal, aux);
+          delete[] celulares;
+          celulares = aux;
+        }
+
         cadastrarCelular(celulares, estoqueReal);
       } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
 
@@ -1673,6 +1683,14 @@ int main()
     }
     case '6':
     { // Importar de CSV
+      if (estoqueMax - estoqueReal <= 50)
+      {
+        Celular *aux;
+        aux = new Celular[estoqueReal + 100];
+        copy(celulares, celulares + estoqueReal, aux);
+        delete[] celulares;
+        celulares = aux;
+      }
       importarDeArquivo(celulares, estoqueReal);
       break;
     }
