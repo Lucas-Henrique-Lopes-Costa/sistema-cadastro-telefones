@@ -1523,7 +1523,7 @@ int main()
         if (estoqueMax - estoqueReal <= 50)
         {
           Celular *aux;
-          aux = new Celular[estoqueReal + 100];
+          aux = new Celular[estoqueReal * 2];
           copy(celulares, celulares + estoqueReal, aux);
           delete[] celulares;
           celulares = aux;
