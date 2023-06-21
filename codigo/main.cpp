@@ -1396,6 +1396,55 @@ void removerCelular(Celular celulares[], int estoqueReal)
   }
 }
 
+// perguntar se ele quer o espaço utilziado ou o espaço que ainda está disponivel
+void consultarEspacoEmEstoque(int estoqueReal, int estoqueMax)
+{
+  system(clearCommand.c_str());
+
+  // perguntar se ele quer o espaço utilziado ou o espaço que ainda está disponivel
+  int opcao;
+  cout << "Deseja consultar:" << endl;
+  cout << "1 - Espaco utilizado" << endl;
+  cout << "2 - Espaco disponivel" << endl;
+  cout << "0 - Voltar" << endl;
+  cout << "Opcao: ";
+  cin >> opcao;
+
+  if (opcao == 1)
+  {
+    cout << endl
+         << "##################################" << endl;
+    cout << "Espaco utilizado: " << estoqueReal << endl;
+    cout << "##################################" << endl;
+
+    int opcao;
+    cout << endl
+         << "Digite '0' para voltar: " << endl;
+    cout << "Opcao: ";
+    cin >> opcao;
+  }
+  else if (opcao == 2)
+  {
+    cout << endl
+         << "##################################" << endl;
+    cout << "Espaco disponivel: " << estoqueMax - estoqueReal << endl;
+    cout << "##################################" << endl;
+
+    int opcao;
+    cout << endl
+         << "Digite '0' para voltar: " << endl;
+    cout << "Opcao: ";
+    cin >> opcao;
+  }
+  else
+  {
+    cout << endl
+         << "##################################" << endl;
+    cout << "Opcao invalida!" << endl;
+    cout << "##################################" << endl;
+  }
+}
+
 void confirmarSaida(Celular celulares[], int &estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1439,7 +1488,8 @@ void exibirMenu()
   cout << "4 - Alterar Celular" << endl;
   cout << "5 - Exportar Arquivo" << endl;
   cout << "6 - Importar de CSV" << endl;
-  cout << "7 - Sair" << endl;
+  cout << "7 - Consultar espaco em estoque" << endl;
+  cout << "0 - Sair" << endl;
   cout << "Opcao: ";
 }
 
@@ -1523,10 +1573,12 @@ int main()
         if (estoqueMax - estoqueReal <= 50)
         {
           Celular *aux;
-          aux = new Celular[estoqueReal * 2];
+          aux = new Celular[estoqueReal + 100];
           copy(celulares, celulares + estoqueReal, aux);
           delete[] celulares;
           celulares = aux;
+
+          estoqueMax += 100;
         }
 
         cadastrarCelular(celulares, estoqueReal);
@@ -1616,30 +1668,32 @@ int main()
           alterarTodosDados(celulares, estoqueReal);
           break;
         case '5':
+        {
           do
           {
             exibirMenuBuscarCelular();
             cin >> opcaoBuscarCelular;
+            cin.ignore();
 
             switch (opcaoBuscarCelular)
             {
 
-            case 1:
+            case '1':
               buscarPorIdentificador(celulares, estoqueReal);
               break;
-            case 2:
+            case '2':
               buscarPorNome(celulares, estoqueReal);
               break;
-            case 3:
+            case '3':
               buscarPorFaixaDePreco(celulares, estoqueReal);
               break;
-            case 4:
+            case '4':
               buscarPorQuantidade(celulares, estoqueReal);
               break;
-            case 5:
+            case '5':
               buscarPorFabricante(celulares, estoqueReal);
               break;
-            case 6:
+            case '6':
               buscarPorAnoCriacao(celulares, estoqueReal);
               break;
 
@@ -1647,6 +1701,7 @@ int main()
               cout << "Opcao invalida!" << endl;
               exibirMenuBuscarCelular();
               cin >> opcaoBuscarCelular;
+              cin.ignore();
               break;
             }
 
@@ -1661,6 +1716,7 @@ int main()
             }
           } while (opcaoBuscarCelular != 0 && opcaoConsultaNovamente == 1);
           break;
+        }
 
         default:
           cout << "Opcao invalida!" << endl;
@@ -1686,20 +1742,26 @@ int main()
       if (estoqueMax - estoqueReal <= 50)
       {
         Celular *aux;
-        aux = new Celular[estoqueReal + 100];
+        aux = new Celular[estoqueReal * 2];
         copy(celulares, celulares + estoqueReal, aux);
         delete[] celulares;
         celulares = aux;
+
+        estoqueMax *= 2;
       }
       importarDeArquivo(celulares, estoqueReal);
       break;
     }
     case '7':
+    { // Consultar espaco em estoque
+      consultarEspacoEmEstoque(estoqueReal, estoqueMax);
+      break;
+    }
+    case '0':
     { // Sair
       confirmarSaida(celulares, estoqueReal);
       break;
     }
-    case '0':
 
     default:
       exibirMenu();
@@ -1708,7 +1770,7 @@ int main()
     }
     cout << endl;
     exibirMenu();
-  } while (opcao != 7);
+  } while (opcao != 0);
 
   return 0;
 }
