@@ -147,12 +147,12 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
   }
 }
 
-void importarDeArquivo(Celular celulares[], int &estoqueReal)
+void importarDeArquivo(Celular celulares[], int &estoqueReal, int estoqueMax)
 {
   system(clearCommand.c_str());
 
   cout << "===== Importar de arquivos =====" << endl;
-  cout << "Escreva o nome do arquivo (sem .csv) para ser importado" << endl;
+  cout << "Escreva o nome do arquivo (sem .csv) para ser importado. Com no maximo " << estoqueMax - estoqueReal << " cadastros diferentes do atual banco de dados" << endl;
   cout << "Nome do arquivo: ";
   string nomeArquivo;
   cin >> nomeArquivo;
@@ -1749,7 +1749,7 @@ int main()
 
         estoqueMax *= 2;
       }
-      importarDeArquivo(celulares, estoqueReal);
+      importarDeArquivo(celulares, estoqueReal, estoqueMax);
       break;
     }
     case '7':
