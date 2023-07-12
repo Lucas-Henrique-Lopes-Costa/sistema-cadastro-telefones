@@ -12,7 +12,8 @@
     "fstream": "cpp",
     "xstring": "cpp",
     "iostream": "cpp",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "xlocale": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
