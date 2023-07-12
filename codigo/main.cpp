@@ -1,8 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include <stdio.h>
-#include <stdlib.h>
 #include <locale.h>
 #include <algorithm>
 using namespace std;
@@ -316,13 +314,13 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
        << endl
        << "Deseja continuar?" << endl;
 
-  int opcao;
+  char opcao;
   cout << "1 - Sim" << endl;
   cout << "0 - Voltar para o Inicio" << endl;
   cout << "Opcao: ";
   cin >> opcao;
   cin.ignore();
-  if (opcao == 1)
+  if (opcao == '1')
   {
     system(clearCommand.c_str());
 
@@ -368,6 +366,27 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
   }
 }
 
+bool contemPalavra(string nomeReferencia, string nome)
+{
+  unsigned int cont = 0;
+  for (unsigned int i = 0; i < nomeReferencia.length(); i++)
+  {
+    if (nomeReferencia[i] == nome[i])
+    {
+      cont++;
+    }
+  }
+
+  if (cont == nome.length())
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -399,7 +418,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 
     for (int i = 0; i <= estoqueReal; i++)
     {
-      if (celulares[i].anoCriacao == anoCriacao)
+      if (celulares[i].anoCriacao == anoCriacao && celulares[i].identificador > 0)
       {
         cout << endl
              << "===== Celular Encontrado =====" << endl;
@@ -415,23 +434,18 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
         encontrado = true;
 
         resposta[j].identificador = celulares[i].identificador;
-
-        for (unsigned int i = 0; i < 30; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
         {
           resposta[j].nome[i] = celulares[i].nome[i];
         }
-
         resposta[j].preco = celulares[i].preco;
         resposta[j].quantidade = celulares[i].quantidade;
-
-        for (unsigned int i = 0; i < 10; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
         {
           resposta[j].fabricante[i] = celulares[i].fabricante[i];
         }
-
         resposta[j].anoCriacao = celulares[i].anoCriacao;
-
-        for (unsigned int i = 0; i < 230; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
         {
           resposta[j].descricao[i] = celulares[i].descricao[i];
         }
@@ -498,26 +512,22 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
         encontrado = true;
 
         resposta[j].identificador = celulares[i].identificador;
-
-        for (unsigned int i = 0; i < 30; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
         {
           resposta[j].nome[i] = celulares[i].nome[i];
         }
-
         resposta[j].preco = celulares[i].preco;
         resposta[j].quantidade = celulares[i].quantidade;
-
-        for (unsigned int i = 0; i < 10; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
         {
           resposta[j].fabricante[i] = celulares[i].fabricante[i];
         }
-
         resposta[j].anoCriacao = celulares[i].anoCriacao;
-
-        for (unsigned int i = 0; i < 230; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
         {
           resposta[j].descricao[i] = celulares[i].descricao[i];
         }
+
         j++;
 
         cont++;
@@ -562,7 +572,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 
     for (int i = 0; i <= estoqueReal; i++)
     {
-      if (celulares[i].anoCriacao >= anoCriacaoMin)
+      if (celulares[i].anoCriacao >= anoCriacaoMin && celulares[i].identificador > 0)
       {
         cout << endl
              << "===== Celular Encontrado =====" << endl;
@@ -578,26 +588,22 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
         encontrado = true;
 
         resposta[j].identificador = celulares[i].identificador;
-
-        for (unsigned int i = 0; i < 30; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
         {
           resposta[j].nome[i] = celulares[i].nome[i];
         }
-
         resposta[j].preco = celulares[i].preco;
         resposta[j].quantidade = celulares[i].quantidade;
-
-        for (unsigned int i = 0; i < 10; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
         {
           resposta[j].fabricante[i] = celulares[i].fabricante[i];
         }
-
         resposta[j].anoCriacao = celulares[i].anoCriacao;
-
-        for (unsigned int i = 0; i < 230; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
         {
           resposta[j].descricao[i] = celulares[i].descricao[i];
         }
+
         j++;
 
         cont++;
@@ -642,7 +648,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 
     for (int i = 0; i <= estoqueReal; i++)
     {
-      if (celulares[i].anoCriacao <= anoCriacaoMax)
+      if (celulares[i].anoCriacao <= anoCriacaoMax && celulares[i].identificador > 0)
       {
         cout << endl
              << "===== Celular Encontrado =====" << endl;
@@ -658,26 +664,22 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
         encontrado = true;
 
         resposta[j].identificador = celulares[i].identificador;
-
-        for (unsigned int i = 0; i < 30; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
         {
           resposta[j].nome[i] = celulares[i].nome[i];
         }
-
         resposta[j].preco = celulares[i].preco;
         resposta[j].quantidade = celulares[i].quantidade;
-
-        for (unsigned int i = 0; i < 10; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
         {
           resposta[j].fabricante[i] = celulares[i].fabricante[i];
         }
-
         resposta[j].anoCriacao = celulares[i].anoCriacao;
-
-        for (unsigned int i = 0; i < 230; i++)
+        for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
         {
           resposta[j].descricao[i] = celulares[i].descricao[i];
         }
+
         j++;
 
         cont++;
@@ -733,7 +735,7 @@ void buscarPorFabricante(Celular celulares[], int estoqueReal)
 
   for (int i = 0; i <= estoqueReal; i++)
   {
-    if (celulares[i].fabricante == fabricante)
+    if (contemPalavra(celulares[i].fabricante, fabricante) && celulares[i].identificador > 0)
     {
       cout << endl
            << "===== Celular Encontrado =====" << endl;
@@ -749,26 +751,22 @@ void buscarPorFabricante(Celular celulares[], int estoqueReal)
       encontrado = true;
 
       resposta[j].identificador = celulares[i].identificador;
-
-      for (unsigned int i = 0; i < 30; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
       {
         resposta[j].nome[i] = celulares[i].nome[i];
       }
-
       resposta[j].preco = celulares[i].preco;
       resposta[j].quantidade = celulares[i].quantidade;
-
-      for (unsigned int i = 0; i < 10; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
       {
         resposta[j].fabricante[i] = celulares[i].fabricante[i];
       }
-
       resposta[j].anoCriacao = celulares[i].anoCriacao;
-
-      for (unsigned int i = 0; i < 230; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
       {
         resposta[j].descricao[i] = celulares[i].descricao[i];
       }
+
       j++;
 
       cont++;
@@ -821,7 +819,7 @@ void buscarPorQuantidade(Celular celulares[], int estoqueReal)
 
   for (int i = 0; i <= estoqueReal; i++)
   {
-    if (celulares[i].quantidade >= quantidade)
+    if (celulares[i].quantidade >= quantidade && celulares[i].identificador > 0)
     {
       cout << endl
            << "===== Celular Encontrado =====" << endl;
@@ -837,26 +835,22 @@ void buscarPorQuantidade(Celular celulares[], int estoqueReal)
       encontrado = true;
 
       resposta[j].identificador = celulares[i].identificador;
-
-      for (unsigned int i = 0; i < 30; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
       {
         resposta[j].nome[i] = celulares[i].nome[i];
       }
-
       resposta[j].preco = celulares[i].preco;
       resposta[j].quantidade = celulares[i].quantidade;
-
-      for (unsigned int i = 0; i < 10; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
       {
         resposta[j].fabricante[i] = celulares[i].fabricante[i];
       }
-
       resposta[j].anoCriacao = celulares[i].anoCriacao;
-
-      for (unsigned int i = 0; i < 230; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
       {
         resposta[j].descricao[i] = celulares[i].descricao[i];
       }
+
       j++;
 
       cont++;
@@ -909,7 +903,7 @@ void buscarPorFaixaDePreco(Celular celulares[], int estoqueReal)
 
   for (int i = 0; i <= estoqueReal; i++)
   {
-    if (celulares[i].preco >= precoMin && celulares[i].preco <= precoMax)
+    if (celulares[i].preco >= precoMin && celulares[i].preco <= precoMax && celulares[i].identificador > 0)
     {
       cout << "=== Filtro de : " << precoMin << " ate " << precoMax << " dolares ===" << endl;
       cout << endl
@@ -992,11 +986,10 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
 
   for (int i = 0; i <= estoqueReal; i++)
   {
-    if (celulares[i].nome == nome)
+    if (contemPalavra(celulares[i].nome, nome) && celulares[i].identificador > 0)
     {
       cout << endl
            << "===== Celular Encontrado =====" << endl;
-
       cout << "Identificador: " << celulares[i].identificador << endl;
       cout << "Nome: " << celulares[i].nome << endl;
       cout << "Preco: " << celulares[i].preco << endl;
@@ -1008,18 +1001,18 @@ void buscarPorNome(Celular celulares[], int estoqueReal)
       encontrado = true;
 
       resposta[j].identificador = celulares[i].identificador;
-      for (unsigned int i = 0; i < 30; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].nome); i++)
       {
         resposta[j].nome[i] = celulares[i].nome[i];
       }
       resposta[j].preco = celulares[i].preco;
       resposta[j].quantidade = celulares[i].quantidade;
-      for (unsigned int i = 0; i < 10; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].fabricante); i++)
       {
         resposta[j].fabricante[i] = celulares[i].fabricante[i];
       }
       resposta[j].anoCriacao = celulares[i].anoCriacao;
-      for (unsigned int i = 0; i < 230; i++)
+      for (unsigned int i = 0; i < strlen(celulares[i].descricao); i++)
       {
         resposta[j].descricao[i] = celulares[i].descricao[i];
       }
@@ -1411,9 +1404,14 @@ void alterarNome(Celular celulares[], int estoqueReal)
       }
       else
       {
-        for (unsigned i = 0; i < 30; i++)
+        for (unsigned j = 0; j < strlen(celulares[i].nome); j++)
         {
-          celulares[i].nome[i] = resposta[i];
+          celulares[i].nome[j] = ' ';
+        }
+
+        for (unsigned j = 0; j < strlen(resposta); j++)
+        {
+          celulares[i].nome[j] = resposta[j];
         }
 
         cout << endl
@@ -1492,51 +1490,24 @@ void removerCelular(Celular celulares[], int estoqueReal)
 
     cout << endl
          << "Deseja realmente remover esse celular?" << endl;
-    int opcao;
+    char opcao;
     cout << "1 - Sim" << endl;
     cout << "0 - Voltar para o Inicio" << endl;
     cout << "Opcao: ";
     cin >> opcao;
     cin.ignore();
 
-    if (opcao == 1)
+    if (opcao == '1')
     {
       system(clearCommand.c_str());
 
       celulares[posicao].identificador = -1;
-      int j = 0;
-
-      for (int i = 0; i <= estoqueReal; i++)
-      {
-        if (celulares[i].identificador != -1)
-        {
-          celulares[j].identificador = celulares[i].identificador;
-          for (unsigned int i = 0; i < 30; i++)
-          {
-            celulares[j].nome[i] = celulares[i].nome[i];
-          }
-          celulares[j].preco = celulares[i].preco;
-          celulares[j].quantidade = celulares[i].quantidade;
-          for (unsigned int i = 0; i < 10; i++)
-          {
-            celulares[j].fabricante[i] = celulares[i].fabricante[i];
-          }
-          celulares[j].anoCriacao = celulares[i].anoCriacao;
-          for (unsigned int i = 0; i < 230; i++)
-          {
-            celulares[j].descricao[i] = celulares[i].descricao[i];
-          }
-          j++;
-        }
-      }
-
-      celulares[estoqueReal].identificador = -1;
 
       cout << "##################################" << endl;
       cout << "Removido com sucesso!" << endl;
       cout << "##################################" << endl;
       cout << "Digite '0' Para Voltar: ";
-      char voltar;
+      int voltar;
       cin >> voltar;
     }
     system(clearCommand.c_str());
