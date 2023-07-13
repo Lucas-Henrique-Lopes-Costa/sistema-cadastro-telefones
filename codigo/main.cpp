@@ -27,6 +27,28 @@ struct Celular
   char descricao[230];
 };
 
+// fazendo ordenamento usando mergeSort
+void intercala(Celular celulares[], int inicio, int meio, int fim, int opcao);
+{
+
+}
+
+
+
+void exibirMenuOrdenamento()
+{
+  system(clearCommand.c_str());
+
+  cout << "===== Ordenacao Celular =====" << endl;
+  cout << "1 - Ordenar por Nome" << endl;
+  cout << "2 - Ordenar por Preco" << endl;
+  cout << "3 - Ordenar por Quantidade" << endl;
+  cout << "4 - Ordenar por ano" << endl;
+  cout << "5 - Ordenar por Fabricante" << endl;
+  cout << "0 - Voltar" << endl;
+  cout << "Opcao: ";
+}
+
 void exportarParaArquivo(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1866,6 +1888,41 @@ int main()
     { // Consultar espaco em estoque
       consultarEspacoEmEstoque(estoqueReal, estoqueMax);
       break;
+    }
+    case '8':
+    { // Ordenar
+      exibirMenuOrdenamento();
+      char opcaoOrdenamento;
+
+      cin >> opcaoOrdenamento;
+
+      switch (opcaoOrdenamento)
+      {
+      case '1':
+        ordenarPorNome(celulares, estoqueReal);
+        break;
+      case '2':
+        ordenarPorPreco(celulares, estoqueReal);
+        break;
+      case '3':
+        ordenarPorQuantidade(celulares, estoqueReal);
+        break;
+      case '4':
+        ordenarPorFabricante(celulares, estoqueReal);
+        break;
+      case '5':
+        ordenarPorAnoCriacao(celulares, estoqueReal);
+        break;
+      case '6':
+        ordenarPorIdentificador(celulares, estoqueReal);
+        break;
+      
+      default:
+        cout << "Opcao invalida!" << endl;
+        exibirMenuOrdenamento();
+        cin >> opcaoOrdenamento;
+        break;
+      }
     }
     case '0':
     { // Sair
