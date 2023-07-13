@@ -13,7 +13,8 @@
     "xstring": "cpp",
     "iostream": "cpp",
     "iosfwd": "cpp",
-    "xlocale": "cpp"
+    "xlocale": "cpp",
+    "random": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -27,14 +27,38 @@ struct Celular
   char descricao[230];
 };
 
-// fazendo ordenamento usando mergeSort
-void intercala(Celular celulares[], int inicio, int meio, int fim, int opcao);
+int partcionamentoLomuto(int v[], int p, int r)
 {
-
+  int pivo = v[r];
+  int j = p;
+  int k;
+  for (k = p; k < r; k++)
+  {
+    if (v[k] <= pivo)
+    {
+      swap(v[j], v[k]);
+      j++;
+    }
+  }
+  swap(v[j], v[r]);
+  return j;
 }
 
+void quickSort(int vet[], int posPivo, int fim)
+{
+  int posNovoPivo;
+  if (posPivo < fim)
+  {
+    posNovoPivo = particionamentoLomuto(vet, posPivo, fim);
+    quicksort(vet, posPivo, posNovoPivo - 1);
+    quicksort(vet, posNovoPivo + 1, fim);
+  }
+}
+void ordenarPorNome(Celular celulares[], int estoqueReal);
+{
+  quickSort(celulares.nome, 0 , estoqueReal)
 
-
+}
 void exibirMenuOrdenamento()
 {
   system(clearCommand.c_str());
@@ -1916,7 +1940,7 @@ int main()
       case '6':
         ordenarPorIdentificador(celulares, estoqueReal);
         break;
-      
+
       default:
         cout << "Opcao invalida!" << endl;
         exibirMenuOrdenamento();
