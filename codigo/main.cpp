@@ -27,38 +27,87 @@ struct Celular
   char descricao[230];
 };
 
-int partcionamentoLomuto(int v[], int p, int r)
+void intercala(Celular v[], int p, int q, int r, char tipo)
 {
-  int pivo = v[r];
-  int j = p;
-  int k;
-  for (k = p; k < r; k++)
+  if (tipo=='1')
   {
-    if (v[k] <= pivo)
+    
+  }
+  else if (tipo=='2')
+  {
+    
+  }
+  else if (tipo=='3')
+  {
+    
+  }
+  else if (tipo=='4')
+  {
+    
+  }
+  else if (tipo=='5')
+  {
+    
+  }
+  else if (tipo=='6')
+  {
+    
+  }
+  
+  
+  int i = p, j = q;
+  int tamanho = r - p + 1;
+  int w[tamanho]; // vetor auxiliar
+
+  int k = 0;
+
+  while ((i < q) && (j <= r))
+  {
+    if (v[i] <= v[j])
     {
-      swap(v[j], v[k]);
-      j++;
+      w[k++] = v[i++]; /* w[k] = v[i]; k++; i++; */
+    }
+    else
+    {
+      w[k++] = v[j++]; /* w[k] = v[j]; k++; j++; */
     }
   }
-  swap(v[j], v[r]);
-  return j;
-}
 
-void quickSort(int vet[], int posPivo, int fim)
-{
-  int posNovoPivo;
-  if (posPivo < fim)
+  // terminou um dos vetores, agora copia o outro
+  while (i < q)
   {
-    posNovoPivo = particionamentoLomuto(vet, posPivo, fim);
-    quicksort(vet, posPivo, posNovoPivo - 1);
-    quicksort(vet, posNovoPivo + 1, fim);
+    w[k++] = v[i++];
+  }
+  while (j <= r)
+  {
+    w[k++] = v[j++];
+  }
+
+  // agora copiamos do vetor auxiliar aux[] em v[p:r]
+  for (int m = 0; m < tamanho; m++)
+  {
+    v[p + m] = w[m];
   }
 }
-void ordenarPorNome(Celular celulares[], int estoqueReal);
-{
-  quickSort(celulares.nome, 0 , estoqueReal)
 
+void mergeiterativo(Celular v[], int tam, char tipo)
+{
+  int p, r, b = 1;
+  while (b < tam)
+  {
+    p = 0;
+    while (p + b < tam)
+    {
+      r = p + 2 * b - 1;
+      if (r >= tam)
+        r = tam - 1;
+      intercala(v, p, p + b, r, tipo);
+      p = p + 2 * b;
+    }
+    b = 2 * b;
+  }
 }
+
 void exibirMenuOrdenamento()
 {
   system(clearCommand.c_str());
@@ -1923,22 +1972,28 @@ int main()
       switch (opcaoOrdenamento)
       {
       case '1':
-        ordenarPorNome(celulares, estoqueReal);
+        char tipo = '1';
+        mergeiterativo(celulares, estoqueReal, tipo);
         break;
       case '2':
-        ordenarPorPreco(celulares, estoqueReal);
+        char tipo = '2';
+        mergeiterativo(celulares, estoqueReal, tipo);
         break;
       case '3':
-        ordenarPorQuantidade(celulares, estoqueReal);
+        char tipo = '3';
+        mergeiterativo(celulares, estoqueReal, tipo);
         break;
       case '4':
-        ordenarPorFabricante(celulares, estoqueReal);
+        char tipo = '4';
+        mergeiterativo(celulares, estoqueReal, tipo);
         break;
       case '5':
-        ordenarPorAnoCriacao(celulares, estoqueReal);
+        char tipo = '5';
+        mergeiterativo(celulares, estoqueReal, tipo);
         break;
       case '6':
-        ordenarPorIdentificador(celulares, estoqueReal);
+        char tipo = '6';
+        mergeiterativo(celulares, estoqueReal, tipo);
         break;
 
       default:
