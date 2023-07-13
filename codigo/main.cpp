@@ -30,23 +30,23 @@ struct Celular
 void intercala(Celular v[], int p, int q, int r, char tipo)
 {
   if (tipo=='1')
-  {
+  {//Nome
     
   }
   else if (tipo=='2')
-  {
+  {//Preco
     
   }
   else if (tipo=='3')
-  {
+  {//Quantidade
     
   }
   else if (tipo=='4')
-  {
+  {//Ano
     
   }
   else if (tipo=='5')
-  {
+  {//Fabricante
     
   }
   else if (tipo=='6')
@@ -1991,9 +1991,7 @@ int main()
         char tipo = '5';
         mergeiterativo(celulares, estoqueReal, tipo);
         break;
-      case '6':
-        char tipo = '6';
-        mergeiterativo(celulares, estoqueReal, tipo);
+      case '0':
         break;
 
       default:
