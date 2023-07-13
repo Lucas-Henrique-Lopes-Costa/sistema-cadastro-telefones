@@ -33,7 +33,7 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
 
   char opcao;
   cout << "===== Exportar em arquivos =====" << endl;
-  cout << "1 - Salvar em binario (recomendado)" << endl;
+  cout << "1 - Salvar em binario (escolha essa opção se for sair da aplciacao)" << endl;
   cout << "2 - Salvar em .txt" << endl;
   cout << "3 - Salvar em .csv" << endl;
   cout << "4 - Salvar em outro formato" << endl;
