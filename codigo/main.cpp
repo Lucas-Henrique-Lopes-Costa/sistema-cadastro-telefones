@@ -2061,6 +2061,7 @@ int main()
         cin >> opcaoOrdenamento;
         break;
       }
+      break;
     }
     case '0':
     { // Sair
