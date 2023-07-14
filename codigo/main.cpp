@@ -2024,7 +2024,6 @@ int main()
       {
         char tipo = '1';
         mergeiterativo(celulares, estoqueReal, tipo);
-
         exibirCelulares(celulares, estoqueReal);
 
         break;
