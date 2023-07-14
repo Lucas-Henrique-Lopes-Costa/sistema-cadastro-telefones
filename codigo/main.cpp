@@ -27,66 +27,113 @@ struct Celular
   char descricao[230];
 };
 
+void exibirCelulares(Celular celulares[], int estoqueReal)
+{
+  system(clearCommand.c_str());
+
+  cout << "===== Celulares Cadastrados =====" << endl;
+  for (int i = 0; i < estoqueReal; i++)
+  {
+    cout << endl
+         << "===== Celular " << i + 1 << " =====" << endl;
+    cout << "Identificador: " << celulares[i].identificador << endl;
+    cout << "Nome: " << celulares[i].nome << endl;
+    cout << "Preco: " << celulares[i].preco << endl;
+    cout << "Quantidade: " << celulares[i].quantidade << endl;
+    cout << "Fabricante: " << celulares[i].fabricante << endl;
+    cout << "Ano de Criacao: " << celulares[i].anoCriacao << endl;
+    cout << "Descricao: " << celulares[i].descricao << endl;
+  }
+
+  cout << endl
+       << "Digite '0' Para Voltar: ";
+  char voltar;
+  cin >> voltar;
+}
+
 void intercala(Celular v[], int p, int q, int r, char tipo)
 {
-  if (tipo=='1')
-  {//Nome
-    
-  }
-  else if (tipo=='2')
-  {//Preco
-    
-  }
-  else if (tipo=='3')
-  {//Quantidade
-    
-  }
-  else if (tipo=='4')
-  {//Ano
-    
-  }
-  else if (tipo=='5')
-  {//Fabricante
-    
-  }
-  else if (tipo=='6')
-  {
-    
-  }
-  
-  
-  int i = p, j = q;
-  int tamanho = r - p + 1;
-  int w[tamanho]; // vetor auxiliar
+  if (tipo == '1')
+  { // Nome
+    int i, j, k;
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    char L[n1][30], R[n2][30]; // L e R sao os vetores temporarios
 
-  int k = 0;
-
-  while ((i < q) && (j <= r))
-  {
-    if (v[i] <= v[j])
+    // copia os dados L para os vetores temporarios
+    for (i = 0; i < n1; i++)
     {
-      w[k++] = v[i++]; /* w[k] = v[i]; k++; i++; */
+      for (j = 0; j < 30; j++)
+      {
+        L[i][j] = v[p + i].nome[j];
+      }
     }
-    else
+
+    // copia os dados R para os vetores temporarios
+    for (j = 0; j < n2; j++)
     {
-      w[k++] = v[j++]; /* w[k] = v[j]; k++; j++; */
+      for (k = 0; k < 30; k++)
+      {
+        R[j][k] = v[q + j + 1].nome[k];
+      }
+    }
+
+    i = 0;
+    j = 0;
+
+    for (k = p; k <= r; k++)
+    {
+      if (i < n1 && j < n2)
+      {
+        if (L[i][0] <= R[j][0])
+        {
+          for (int c = 0; c < 30; c++)
+          {
+            v[k].nome[c] = L[i][c];
+          }
+          i++;
+        }
+        else
+        {
+          for (int c = 0; c < 30; c++)
+          {
+            v[k].nome[c] = R[j][c];
+          }
+          j++;
+        }
+      }
+      else if (i < n1)
+      {
+        for (int c = 0; c < 30; c++)
+        {
+          v[k].nome[c] = L[i][c];
+        }
+        i++;
+      }
+      else
+      {
+        for (int c = 0; c < 30; c++)
+        {
+          v[k].nome[c] = R[j][c];
+        }
+        j++;
+      }
     }
   }
-
-  // terminou um dos vetores, agora copia o outro
-  while (i < q)
-  {
-    w[k++] = v[i++];
+  else if (tipo == '2')
+  { // Preco
   }
-  while (j <= r)
-  {
-    w[k++] = v[j++];
+  else if (tipo == '3')
+  { // Quantidade
   }
-
-  // agora copiamos do vetor auxiliar aux[] em v[p:r]
-  for (int m = 0; m < tamanho; m++)
+  else if (tipo == '4')
+  { // Ano
+  }
+  else if (tipo == '5')
+  { // Fabricante
+  }
+  else if (tipo == '6')
   {
-    v[p + m] = w[m];
   }
 }
 
@@ -99,9 +146,11 @@ void mergeiterativo(Celular v[], int tam, char tipo)
     while (p + b < tam)
     {
       r = p + 2 * b - 1;
-      if (r >= tam)
+      if (r > tam)
+      {
         r = tam - 1;
-      intercala(v, p, p + b, r, tipo);
+      }
+      intercala(v, p, p + b - 1, r, tipo);
       p = p + 2 * b;
     }
     b = 2 * b;
@@ -1723,6 +1772,7 @@ void exibirMenu()
   cout << "5 - Exportar Arquivo" << endl;
   cout << "6 - Importar de CSV" << endl;
   cout << "7 - Consultar espaco em estoque" << endl;
+  cout << "8 - Ordernacao" << endl;
   cout << "0 - Sair" << endl;
   cout << "Opcao: ";
 }
@@ -1966,31 +2016,43 @@ int main()
     { // Ordenar
       exibirMenuOrdenamento();
       char opcaoOrdenamento;
-
       cin >> opcaoOrdenamento;
 
       switch (opcaoOrdenamento)
       {
       case '1':
+      {
         char tipo = '1';
         mergeiterativo(celulares, estoqueReal, tipo);
+
+        exibirCelulares(celulares, estoqueReal);
+
         break;
+      }
       case '2':
+      {
         char tipo = '2';
         mergeiterativo(celulares, estoqueReal, tipo);
         break;
+      }
       case '3':
+      {
         char tipo = '3';
         mergeiterativo(celulares, estoqueReal, tipo);
         break;
+      }
       case '4':
+      {
         char tipo = '4';
         mergeiterativo(celulares, estoqueReal, tipo);
         break;
+      }
       case '5':
+      {
         char tipo = '5';
         mergeiterativo(celulares, estoqueReal, tipo);
         break;
+      }
       case '0':
         break;
 
