@@ -58,24 +58,18 @@ void intercala(Celular v[], int p, int q, int r, char tipo)
     int i, j, k;
     int n1 = q - p + 1;
     int n2 = r - q;
-    char L[n1][30], R[n2][30]; // L e R sao os vetores temporarios
+    Celular L[n1], R[n2]; // L e R sao os vetores temporarios
 
     // copia os dados L para os vetores temporarios
     for (i = 0; i < n1; i++)
     {
-      for (j = 0; j < 30; j++)
-      {
-        L[i][j] = v[p + i].nome[j];
-      }
+      L[i] = v[p + i];
     }
 
     // copia os dados R para os vetores temporarios
     for (j = 0; j < n2; j++)
     {
-      for (k = 0; k < 30; k++)
-      {
-        R[j][k] = v[q + j + 1].nome[k];
-      }
+      R[j] = v[q + j + 1];
     }
 
     i = 0;
@@ -85,55 +79,224 @@ void intercala(Celular v[], int p, int q, int r, char tipo)
     {
       if (i < n1 && j < n2)
       {
-        if (L[i][0] <= R[j][0])
+        if (L[i].nome[0] <= R[j].nome[0])
         {
-          for (int c = 0; c < 30; c++)
-          {
-            v[k].nome[c] = L[i][c];
-          }
+          v[k] = L[i];
           i++;
         }
         else
         {
-          for (int c = 0; c < 30; c++)
-          {
-            v[k].nome[c] = R[j][c];
-          }
+          v[k] = R[j];
           j++;
         }
       }
       else if (i < n1)
       {
-        for (int c = 0; c < 30; c++)
-        {
-          v[k].nome[c] = L[i][c];
-        }
+        v[k] = L[i];
         i++;
       }
       else
       {
-        for (int c = 0; c < 30; c++)
-        {
-          v[k].nome[c] = R[j][c];
-        }
+        v[k] = R[j];
         j++;
       }
     }
   }
   else if (tipo == '2')
   { // Preco
+    int i, j, k;
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    Celular L[n1], R[n2]; // L e R sao os vetores temporarios
+
+    // copia os dados L para os vetores temporarios
+    for (i = 0; i < n1; i++)
+    {
+      L[i] = v[p + i];
+    }
+
+    // copia os dados R para os vetores temporarios
+    for (j = 0; j < n2; j++)
+    {
+      R[j] = v[q + j + 1];
+    }
+
+    i = 0;
+    j = 0;
+
+    for (k = p; k <= r; k++)
+    {
+      if (i < n1 && j < n2)
+      {
+        if (L[i].preco <= R[j].preco)
+        {
+          v[k] = L[i];
+          i++;
+        }
+        else
+        {
+          v[k] = R[j];
+          j++;
+        }
+      }
+      else if (i < n1)
+      {
+        v[k] = L[i];
+        i++;
+      }
+      else
+      {
+        v[k] = R[j];
+        j++;
+      }
+    }
   }
   else if (tipo == '3')
-  { // Quantidade
+  { // Quantidadej
+    int i, j, k;
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    Celular L[n1], R[n2]; // L e R sao os vetores temporarios
+
+    // copia os dados L para os vetores temporarios
+    for (i = 0; i < n1; i++)
+    {
+      L[i] = v[p + i];
+    }
+
+    // copia os dados R para os vetores temporarios
+    for (j = 0; j < n2; j++)
+    {
+      R[j] = v[q + j + 1];
+    }
+
+    i = 0;
+    j = 0;
+
+    for (k = p; k <= r; k++)
+    {
+      if (i < n1 && j < n2)
+      {
+        if (L[i].quantidade <= R[j].quantidade)
+        {
+          v[k] = L[i];
+          i++;
+        }
+        else
+        {
+          v[k] = R[j];
+          j++;
+        }
+      }
+      else if (i < n1)
+      {
+        v[k] = L[i];
+        i++;
+      }
+      else
+      {
+        v[k] = R[j];
+        j++;
+      }
+    }
   }
   else if (tipo == '4')
   { // Ano
+    int i, j, k;
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    Celular L[n1], R[n2]; // L e R sao os vetores temporarios
+
+    // copia os dados L para os vetores temporarios
+    for (i = 0; i < n1; i++)
+    {
+      L[i] = v[p + i];
+    }
+
+    // copia os dados R para os vetores temporarios
+    for (j = 0; j < n2; j++)
+    {
+      R[j] = v[q + j + 1];
+    }
+
+    i = 0;
+    j = 0;
+
+    for (k = p; k <= r; k++)
+    {
+      if (i < n1 && j < n2)
+      {
+        if (L[i].anoCriacao <= R[j].anoCriacao)
+        {
+          v[k] = L[i];
+          i++;
+        }
+        else
+        {
+          v[k] = R[j];
+          j++;
+        }
+      }
+      else if (i < n1)
+      {
+        v[k] = L[i];
+        i++;
+      }
+      else
+      {
+        v[k] = R[j];
+        j++;
+      }
+    }
   }
   else if (tipo == '5')
   { // Fabricante
-  }
-  else if (tipo == '6')
-  {
+    int i, j, k;
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    Celular L[n1], R[n2]; // L e R sao os vetores temporarios
+
+    // copia os dados L para os vetores temporarios
+    for (i = 0; i < n1; i++)
+    {
+      L[i] = v[p + i];
+    }
+
+    // copia os dados R para os vetores temporarios
+    for (j = 0; j < n2; j++)
+    {
+      R[j] = v[q + j + 1];
+    }
+
+    i = 0;
+    j = 0;
+
+    for (k = p; k <= r; k++)
+    {
+      if (i < n1 && j < n2)
+      {
+        if (L[i].fabricante[0] <= R[j].fabricante[0])
+        {
+          v[k] = L[i];
+          i++;
+        }
+        else
+        {
+          v[k] = R[j];
+          j++;
+        }
+      }
+      else if (i < n1)
+      {
+        v[k] = L[i];
+        i++;
+      }
+      else
+      {
+        v[k] = R[j];
+        j++;
+      }
+    }
   }
 }
 
@@ -177,7 +340,7 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
 
   char opcao;
   cout << "===== Exportar em arquivos =====" << endl;
-  cout << "1 - Salvar em binario (escolha essa opcao se for sair da aplciacao)" << endl;
+  cout << "1 - Salvar em binario (escolha essa opcao se for sair da aplicacao)" << endl;
   cout << "2 - Salvar em .txt" << endl;
   cout << "3 - Salvar em .csv" << endl;
   cout << "4 - Salvar em outro formato" << endl;
@@ -618,7 +781,7 @@ void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 
       if (respostaExportar == 1)
       {
-        exportarParaArquivo(resposta, cont);
+        exportarParaArquivo(celulares, estoqueReal);
       }
     }
     break;
@@ -2026,30 +2189,103 @@ int main()
         mergeiterativo(celulares, estoqueReal, tipo);
         exibirCelulares(celulares, estoqueReal);
 
+        cout << endl
+             << "Deseja exportar essa lista em um arquivo separado?" << endl;
+        cout << "1 - sim" << endl
+             << "0 - nao" << endl;
+        cout << "Opcao: ";
+        int respostaExportar;
+        cin >> respostaExportar;
+
+        if (respostaExportar == 1)
+        {
+          exportarParaArquivo(celulares, estoqueReal);
+        }
+
         break;
       }
       case '2':
       {
         char tipo = '2';
         mergeiterativo(celulares, estoqueReal, tipo);
+        exibirCelulares(celulares, estoqueReal);
+
+        cout << endl
+             << "Deseja exportar essa lista em um arquivo separado?" << endl;
+        cout << "1 - sim" << endl
+             << "0 - nao" << endl;
+        cout << "Opcao: ";
+        int respostaExportar;
+        cin >> respostaExportar;
+
+        if (respostaExportar == 1)
+        {
+          exportarParaArquivo(celulares, estoqueReal);
+        }
+
         break;
       }
       case '3':
       {
         char tipo = '3';
         mergeiterativo(celulares, estoqueReal, tipo);
+        exibirCelulares(celulares, estoqueReal);
+
+        cout << endl
+             << "Deseja exportar essa lista em um arquivo separado?" << endl;
+        cout << "1 - sim" << endl
+             << "0 - nao" << endl;
+        cout << "Opcao: ";
+        int respostaExportar;
+        cin >> respostaExportar;
+
+        if (respostaExportar == 1)
+        {
+          exportarParaArquivo(celulares, estoqueReal);
+        }
+
         break;
       }
       case '4':
       {
         char tipo = '4';
         mergeiterativo(celulares, estoqueReal, tipo);
+        exibirCelulares(celulares, estoqueReal);
+
+        cout << endl
+             << "Deseja exportar essa lista em um arquivo separado?" << endl;
+        cout << "1 - sim" << endl
+             << "0 - nao" << endl;
+        cout << "Opcao: ";
+        int respostaExportar;
+        cin >> respostaExportar;
+
+        if (respostaExportar == 1)
+        {
+          exportarParaArquivo(celulares, estoqueReal);
+        }
+
         break;
       }
       case '5':
       {
         char tipo = '5';
         mergeiterativo(celulares, estoqueReal, tipo);
+        exibirCelulares(celulares, estoqueReal);
+
+        cout << endl
+             << "Deseja exportar essa lista em um arquivo separado?" << endl;
+        cout << "1 - sim" << endl
+             << "0 - nao" << endl;
+        cout << "Opcao: ";
+        int respostaExportar;
+        cin >> respostaExportar;
+
+        if (respostaExportar == 1)
+        {
+          exportarParaArquivo(celulares, estoqueReal);
+        }
+
         break;
       }
       case '0':
