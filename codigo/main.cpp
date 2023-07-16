@@ -1955,7 +1955,6 @@ int main()
   }
 
   // utilizando struct com ponteiro para armazenar os dados do arquivo
-
   arquivoIn.seekg(0, ios::end);
   int tamanhoArquivo = arquivoIn.tellg();
 
