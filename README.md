@@ -68,7 +68,7 @@ header: 'Sistema de Gerenciamento de Vendas de Smartphones'
 
 #### Utilização de vetor normal em vez de utilizar struct
 
-* Foi necessário refazer o código para utilizar struct
+- Foi necessário refazer o código para utilizar struct
 
 ```c
 struct Celular
@@ -87,7 +87,7 @@ struct Celular
 
 #### Esquecimento de apagar o último elemento
 
-* Quebramos a cabeça para perceber que estávamos deixando o for sem o ``=``.
+- Quebramos a cabeça para perceber que estávamos deixando o for sem o ``=``.
 
 ```c
 
@@ -105,15 +105,15 @@ for (int i = 0; i <= estoqueReal; i++)
 
 #### Leitura incorreta do arquivo binário
 
-* Assistimos as aulas e não entendemos nada como aplicar no nosso código
+- Assistimos as aulas e não entendemos nada como aplicar no nosso código
 
-* Foi na tentativa e erro que conseguimos resolver
+- Foi na tentativa e erro que conseguimos resolver
 
 ---
 
 ##### Passo 1
 
-* Calculamos o tamanho do arquivo e dividir pelo tamanho da struct
+- Calculamos o tamanho do arquivo e dividir pelo tamanho da struct
 
 ```c
 // utilizando struct com ponteiro para armazenar os dados do arquivo
@@ -130,7 +130,7 @@ int estoqueMax = tamanhoArquivo / sizeof(Celular);
 
 #### Passo 2
 
-* Criamos um vetor de struct e utilizamos o ``new`` para alocar a memória
+- Criamos um vetor de struct e utilizamos o ``new`` para alocar a memória
 
 ```c
 Celular *celulares;
@@ -141,7 +141,7 @@ celulares = new Celular[estoqueMax];
 
 #### Passo 3
 
-* Utilizamos o ``while`` para ler o arquivo e armazenar os dados no vetor
+- Utilizamos o ``while`` para ler o arquivo e armazenar os dados no vetor
 
 ```c
 int estoqueReal = 0;
