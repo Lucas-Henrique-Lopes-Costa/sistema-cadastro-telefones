@@ -1,53 +1,174 @@
-# Projeto: Sistema de cadastro de telefones celulares para venda
+---
+marp: true
+theme: uncover
+header: 'Sistema de Gerenciamento de Vendas de Smartphones'
+---
 
-## Grupo
+# Sistema de Gerenciamento de Vendas de Smartphones
 
-Lucas Henrique, Pedro Gonçalves, Gabriel Carvalho
+---
 
-## Bases
+# Introdução
 
-Identificador
+* Projeto de desenvolvimento por: Lucas Henrique, Pedro Gonçalves e Gabriel Carvalho.
 
-Nome
+* Objetivo do projeto: Controlar e analisar suas transações de venda no mercado de dispositivos móveis.
 
-Quantidade
+---
 
-Preço
+# Funcionalidades Principais
 
-Fabricante
+* Cadastro / Remoção
 
-Ano de criação
+* Busca
 
-Descrição do produto
+* Alteração
 
-## Sobre o Projeto
+* Exportação / Importação de ``.csv``
 
-### Introdução
+* Consulta de estoque
 
-O objetivo deste projeto é desenvolver um sistema de gerenciamento de vendas de smartphones, que permitirá às empresas monitorar e controlar suas transações de venda de forma eficiente. Com o crescimento do mercado de dispositivos móveis, é essencial que as empresas tenham ferramentas adequadas para acompanhar e analisar suas vendas de smartphones.
+* Ordenação
 
-### Sobre as bases
+---
 
-Identificador: Cada smartphone vendido receberá um identificador exclusivo, que será utilizado para rastrear e identificar o dispositivo. Tipo de dado: int.
+# Estruturas Utilizadas
 
-Nome: O nome do smartphone será registrado, facilitando a identificação do modelo específico. Tipo de dado:  string com espaço
+* Struct
 
-Preço: Qual é o valor de venda do produto por unidade de cada smartphone. Tipo de dado: float.
+* Modularização
 
-Quantidade: Será registrado o número de unidades em estoque de cada smartphone, permitindo uma logística precisa. Tipo de dado: int.
+* Condicionais
 
-Fabricante: O nome do fabricante será armazenado, fornecendo informações sobre a origem do smartphone. Tipo de dado: string.
+* Estruturas de Repetição
 
-Ano de criação: O ano de criação do smartphone será registrado, possibilitando análises históricas e identificação de tendências. Tipo de dado: int
+* Getline
 
-Descrição do produto: Será incluída uma descrição detalhada do smartphone, fornecendo informações sobre suas características e especificações técnicas. Tipo de dado:  string com espaço.
+* SystemClear
 
-## Funcionalidades
+---
 
-Cadastro de vendas: O sistema permitirá que as empresas registrem as vendas de smartphones, inserindo as informações relevantes, como identificador, nome, quantidade, fabricante, ano de criação e descrição do produto.
+# Acertos e Erros Durante o Desenvolvimento do Projeto
 
-Controle de estoque: O sistema atualizará automaticamente o estoque de smartphones disponíveis com base nas vendas registradas, evitando vendas duplicadas ou erros de estoque.
+---
 
-Ordenação por ano, evitando que produtos fiquem parados nos estoques por longos períodos de tempo.
+## Erros
 
-Importação e exportação em .csv
+* Utilização de vetor normal em vez de utilizar struct
+
+* Esquecimento de apagar o último elemento do vetor
+
+* Leitura incorreta do arquivo binário
+
+---
+
+### Como Resolvemos
+
+---
+
+#### Utilização de vetor normal em vez de utilizar struct
+
+* Foi necessário refazer o código para utilizar struct
+
+```c
+struct Celular
+{
+  int identificador;
+  char nome[30];
+  float preco;
+  int quantidade;
+  char fabricante[10];
+  int anoCriacao;
+  char descricao[230];
+};
+```
+
+---
+
+#### Esquecimento de apagar o último elemento
+
+* Quebramos a cabeça para perceber que estávamos deixando o for sem o ``=``.
+
+```c
+
+for (int i = 0; i <= estoqueReal; i++)
+  {
+    if (celulares[i].identificador == identificador)
+    {
+      posicao = i;
+      contPosicao++;
+    }
+  }
+```
+
+---
+
+#### Leitura incorreta do arquivo binário
+
+* Assistimos as aulas e não entendemos nada como aplicar no nosso código
+
+* Foi na tentativa e erro que conseguimos resolver
+
+---
+
+##### Passo 1
+
+* Calculamos o tamanho do arquivo e dividir pelo tamanho da struct
+
+```c
+// utilizando struct com ponteiro para armazenar os dados do arquivo
+arquivoIn.seekg(0, ios::end);
+int tamanhoArquivo = arquivoIn.tellg();
+
+arquivoIn.seekg(0, ios::beg);
+
+int estoqueMax = tamanhoArquivo / sizeof(Celular);
+
+```
+
+---
+
+#### Passo 2
+
+* Criamos um vetor de struct e utilizamos o ``new`` para alocar a memória
+
+```c
+Celular *celulares;
+celulares = new Celular[estoqueMax];
+```
+
+---
+
+#### Passo 3
+
+* Utilizamos o ``while`` para ler o arquivo e armazenar os dados no vetor
+
+```c
+int estoqueReal = 0;
+string linha;
+
+while (estoqueReal < estoqueMax && arquivoIn.read((char *)&celulares[estoqueReal], sizeof(Celular)))
+{
+  estoqueReal++;
+}
+```
+
+---
+
+## Acertos
+
+* Modularização: Ajudou a deixar o código mais limpo e fácil de entender
+
+* Utilização adequada das estruturas de controle: Fez com que o código ficasse mais organizado para o usuário ter uma opção de escolha
+
+* Tratamento de erros: Foi utilizado para evitar que o usuário digite um valor inválido
+
+---
+
+# Conclusão
+
+* O projeto foi muito importante para o nosso aprendizado
+
+* Aprendemos a utilizar as estruturas de controle e modularização
+
+* Aprendemos a lidar com trabalho em grupo e ter um código grande
