@@ -14,7 +14,8 @@
     "iostream": "cpp",
     "iosfwd": "cpp",
     "xlocale": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "*.tcc": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
