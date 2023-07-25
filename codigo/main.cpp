@@ -1,3 +1,13 @@
+/**
+ * @file main.cpp
+ * @author Lucas, Gabriel, Pedro
+ * @version 1
+ * @date 2023-07-25
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <iostream>
 #include <fstream>
 #include <cstring>
