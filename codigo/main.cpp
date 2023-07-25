@@ -16,6 +16,7 @@ string getClearCommand()
 }
 string clearCommand = getClearCommand();
 
+// Dados da nossa struct
 struct Celular
 {
   int identificador;
@@ -27,6 +28,7 @@ struct Celular
   char descricao[230];
 };
 
+//Função que exibe todo o vetor que está sendo trabalhado
 void exibirCelulares(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -51,6 +53,8 @@ void exibirCelulares(Celular celulares[], int estoqueReal)
   cin >> voltar;
 }
 
+
+//Ordenação po MergeSort
 void intercala(Celular v[], int p, int q, int r, char tipo)
 {
   if (tipo == '1')
@@ -320,6 +324,8 @@ void mergeiterativo(Celular v[], int tam, char tipo)
   }
 }
 
+
+//Função para exibir menu
 void exibirMenuOrdenamento()
 {
   system(clearCommand.c_str());
@@ -334,6 +340,8 @@ void exibirMenuOrdenamento()
   cout << "Opcao: ";
 }
 
+
+//Função de Exportação do vetor para um arquivo
 void exportarParaArquivo(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -483,6 +491,8 @@ void exportarParaArquivo(Celular celulares[], int estoqueReal)
   }
 }
 
+
+//Função de Importação de arquivo para vetor 
 void importarDeArquivo(Celular celulares[], int &estoqueReal, int estoqueMax)
 {
   system(clearCommand.c_str());
@@ -601,6 +611,8 @@ void importarDeArquivo(Celular celulares[], int &estoqueReal, int estoqueMax)
   NomeArqvEntrada.close();
 }
 
+
+//Função de Cadastro individual
 void cadastrarCelular(Celular celulares[], int &estoqueReal)
 {
   system(clearCommand.c_str());
@@ -668,6 +680,8 @@ void cadastrarCelular(Celular celulares[], int &estoqueReal)
   }
 }
 
+
+//Função Auxiliar de Busca
 bool contemPalavra(string nomeReferencia, string nome)
 {
   unsigned int cont = 0;
@@ -689,6 +703,8 @@ bool contemPalavra(string nomeReferencia, string nome)
   }
 }
 
+
+//Funções de Busca
 void buscarPorAnoCriacao(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1388,6 +1404,8 @@ void buscarPorIdentificador(Celular celulares[], int estoqueReal)
   }
 }
 
+
+//Função para exibir menu
 void exibirMenuBuscarCelular()
 {
   system(clearCommand.c_str());
@@ -1403,6 +1421,8 @@ void exibirMenuBuscarCelular()
   cout << "Opcao: ";
 }
 
+
+//Funções de Alteração de Dados Já cadastrados
 void alterarTodosDados(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1744,6 +1764,8 @@ void alterarNome(Celular celulares[], int estoqueReal)
   }
 }
 
+
+//Função para exibir menu
 void exibirMenuAlterarCelular()
 {
   system(clearCommand.c_str());
@@ -1758,6 +1780,8 @@ void exibirMenuAlterarCelular()
   cout << "Opcao: ";
 }
 
+
+//Função de Remoção de um celular específico
 void removerCelular(Celular celulares[], int estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1843,6 +1867,8 @@ void removerCelular(Celular celulares[], int estoqueReal)
   }
 }
 
+
+//Função de Consultar 
 void consultarEspacoEmEstoque(int estoqueReal, int estoqueMax)
 {
   system(clearCommand.c_str());
@@ -1891,6 +1917,8 @@ void consultarEspacoEmEstoque(int estoqueReal, int estoqueMax)
   }
 }
 
+
+//Confirma se o usuário deseja encerrar o funcionamento do programa
 void confirmarSaida(Celular celulares[], int &estoqueReal)
 {
   system(clearCommand.c_str());
@@ -1923,6 +1951,8 @@ void confirmarSaida(Celular celulares[], int &estoqueReal)
   }
 }
 
+
+//Função para exibir menu
 void exibirMenu()
 {
   system(clearCommand.c_str());
@@ -1940,6 +1970,8 @@ void exibirMenu()
   cout << "Opcao: ";
 }
 
+
+//Função principal que faz o uso de todas as outras funções
 int main()
 {
   system("color 0E");              // cor da tela = preta, fonte = amarela
